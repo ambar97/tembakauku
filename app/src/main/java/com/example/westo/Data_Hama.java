@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.westo.Adapter.ListViewAdapterHama;
+
 public class Data_Hama extends AppCompatActivity {
     ListView list;
     ListViewAdapter adapter;
@@ -32,7 +34,7 @@ public class Data_Hama extends AppCompatActivity {
         list = (ListView) findViewById(R.id.listview);
 
         // Pass results to ListViewAdapter Class
-        adapter = new ListViewAdapter(this, Version, image);
+        adapter = new ListViewAdapter(this,Version,image);
         // Binds the Adapter to the ListView
 //        list.setAdapter(adapter);
         // Capture ListView item click

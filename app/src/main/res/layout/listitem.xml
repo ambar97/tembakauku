@@ -2,25 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/listitem_image"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:layout_centerVertical="true"
-        android:padding="5dp" />
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/listitem_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:layout_centerVertical="true"
+                android:padding="5dp" />
 
-    <TextView
-        android:paddingTop="20dp"
-        android:id="@+id/litsitem_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="version"
-        android:textSize="14sp"
-        android:layout_marginLeft="5dp"
-        android:textStyle="bold"
-        android:padding="5dp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/listitem_image"/>
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/litsitem_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="version"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/listitem_image"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
