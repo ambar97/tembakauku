@@ -59,6 +59,7 @@ public class Data_Hama extends AppCompatActivity {
         context = this;
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         swipeRefreshLayout = findViewById(R.id.refreshHama);
+        swipeRefreshLayout.setEnabled( true );
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -85,7 +86,10 @@ public class Data_Hama extends AppCompatActivity {
                         ListItemHama listItemHama = new ListItemHama(
                                 datagethama.getString("nama_penyakit"),
                         null,
-                        datagethama.getString("nama_solusi")
+                        datagethama.getString("nama_solusi"),
+                        datagethama.getString("id_bagian"),
+                        datagethama.getString("nama_penyebab"),
+                        datagethama.getString("deskripsi")
                         );
                         itemHama.add(listItemHama);
                     }

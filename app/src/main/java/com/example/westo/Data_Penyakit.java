@@ -90,8 +90,9 @@ public class Data_Penyakit extends AppCompatActivity {
                                 datagetpenyakit.getString("nama_penyakit"),
                                 bagian,
                                 datagetpenyakit.getString("nama_penyebab"),
-                                datagetpenyakit.getString("nama_solusi"),
-                        null
+                                datagetpenyakit.getString("deskripsi"),
+                        null,
+                        datagetpenyakit.getString("nama_solusi")
                         );
                         itemPenyakits.add(listItemPenyakite);
                     }

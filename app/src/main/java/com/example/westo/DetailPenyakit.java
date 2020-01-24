@@ -11,18 +11,16 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.time.Instant;
-
-public class DetailHama extends AppCompatActivity {
-TextView nama,ket,penyebab,bagian,latin,solusi;
-ImageView imageView;
-Intent intent;
+public class DetailPenyakit extends AppCompatActivity {
+    TextView nama,ket,penyebab,bagian,latin,solusi;
+    ImageView imageView;
+    Intent intent;
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_hama);
-        setTitle("Detail Hama");
+        setContentView(R.layout.activity_detail_penyakit);
+        setTitle("Detail Penyakit");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,8 +53,6 @@ Intent intent;
         penyebab.setText(intent.getStringExtra("penyebab"));
         bagian.setText(intent.getStringExtra("bagian"));
         swipeRefreshLayout.setRefreshing(false);
-
-
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -68,4 +64,5 @@ Intent intent;
 
         }
     }
+
 }

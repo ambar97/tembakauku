@@ -1,14 +1,23 @@
 package com.example.westo.Model;
 
 public class ListItemPenyakit {
-    String nama_penyakit,nama_bagian,penyebab,solusi,gambar;
+    String nama_penyakit,nama_bagian,penyebab,keterangan,gambar,solusi;
 
-    public ListItemPenyakit(String nama_penyakit, String nama_bagian, String penyebab, String solusi, String gambar) {
+    public ListItemPenyakit(String nama_penyakit, String nama_bagian, String penyebab, String keterangan, String gambar, String solusi) {
         this.nama_penyakit = nama_penyakit;
         this.nama_bagian = nama_bagian;
         this.penyebab = penyebab;
-        this.solusi = solusi;
+        this.keterangan = keterangan;
         this.gambar = gambar;
+        this.solusi = solusi;
+    }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 
     public String getNama_penyakit() {

@@ -45,7 +45,10 @@ public class RecycleviewAdapterHama extends RecyclerView.Adapter<RecycleviewAdap
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailHama.class);
                 intent.putExtra("nama",listHama.getNamaHama());
-                intent.putExtra("keterangan",listHama.getSolusi());
+                intent.putExtra("solusi",listHama.getSolusi());
+                intent.putExtra("bagian",listHama.getBagian());
+                intent.putExtra("deskripsi",listHama.getKeterangan());
+                intent.putExtra("penyebab",listHama.getPenyebab());
                 intent.putExtra("gambar",listHama.getGambar());
                 context.startActivity(intent);
             }

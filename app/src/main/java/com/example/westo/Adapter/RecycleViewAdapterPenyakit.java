@@ -1,12 +1,15 @@
 package com.example.westo.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.westo.DetailHama;
+import com.example.westo.DetailPenyakit;
 import com.example.westo.Model.ListItemPenyakit;
 import com.example.westo.R;
 
@@ -45,6 +48,20 @@ public class RecycleViewAdapterPenyakit extends RecyclerView.Adapter<RecycleView
         }
         holder.nama_penyakit.setText(listItemPenyakit.getNama_penyakit());
         holder.bagianPenyakit.setText(bagian);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailPenyakit.class);
+                intent.putExtra("nama",listItemPenyakit.getNama_penyakit());
+                intent.putExtra("solusi",listItemPenyakit.getSolusi());
+                intent.putExtra("bagian",listItemPenyakit.getNama_bagian());
+                intent.putExtra("deskripsi",listItemPenyakit.getKeterangan());
+                intent.putExtra("penyebab",listItemPenyakit.getPenyebab());
+                intent.putExtra("gambar",listItemPenyakit.getGambar());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
