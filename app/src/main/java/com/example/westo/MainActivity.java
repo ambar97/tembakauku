@@ -53,7 +53,7 @@ private boolean isFABOpen = false;
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Data_Penyakit.class);
+                Intent intent = new Intent(MainActivity.this,Diagnosa.class);
 //                finish();
                 startActivity(intent);
             }
