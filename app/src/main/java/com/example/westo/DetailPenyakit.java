@@ -8,11 +8,15 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.clans.fab.FloatingActionButton;
+
 public class DetailPenyakit extends AppCompatActivity {
     TextView nama,ket,penyebab,bagian,latin,solusi;
+    FloatingActionButton home,penyakit,hama,diagnosa;
     ImageView imageView;
     Intent intent;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -64,5 +68,36 @@ public class DetailPenyakit extends AppCompatActivity {
 
         }
     }
+    public void fab(){
+        home = findViewById(R.id.home);
+        penyakit = findViewById(R.id.penyakit);
+        hama = findViewById(R.id.hama);
+        diagnosa = findViewById(R.id.diagnosa);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DetailPenyakit.this,MainActivity.class));
+            }
+        });
+        penyakit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DetailPenyakit.this,Data_Penyakit.class));
+            }
+        });
+        hama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DetailPenyakit.this,Data_Hama.class));
+            }
+        });
+        diagnosa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DetailPenyakit.this,Diagnosa.class));
+            }
+        });
+    }
+
 
 }

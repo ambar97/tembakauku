@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -26,6 +27,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.westo.Adapter.RecycleviewAdapterHama;
 import com.example.westo.Model.BaseUrlApiModel;
 import com.example.westo.Model.ListItemHama;
+import com.github.clans.fab.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data_Hama extends AppCompatActivity {
+    FloatingActionButton home,penyakit,hama,diagnosa;
     RecycleviewAdapterHama adapterHama;
     List<ListItemHama> itemHama = new ArrayList<>();
     RecyclerView recyclerView;
@@ -53,6 +56,7 @@ public class Data_Hama extends AppCompatActivity {
         setTitle("Data Hama");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        fab();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.dataHama_rec);
         recyclerView.setHasFixedSize(true);
@@ -124,5 +128,35 @@ public class Data_Hama extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+    public void fab(){
+        home = findViewById(R.id.home);
+        penyakit = findViewById(R.id.penyakit);
+        hama = findViewById(R.id.hama);
+        diagnosa = findViewById(R.id.diagnosa);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Data_Hama.this,MainActivity.class));
+            }
+        });
+        penyakit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Data_Hama.this,Data_Penyakit.class));
+            }
+        });
+        hama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Data_Hama.this,Data_Hama.class));
+            }
+        });
+        diagnosa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Data_Hama.this,Diagnosa.class));
+            }
+        });
     }
 }

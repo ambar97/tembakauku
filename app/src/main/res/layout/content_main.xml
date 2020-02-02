@@ -94,7 +94,9 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
                                     <RelativeLayout
+                                        android:contextClickable="true"
                                         android:clickable="true"
+                                        android:id="@+id/kasturi"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1">
@@ -116,7 +118,9 @@
 
                                     </RelativeLayout>
                                     <RelativeLayout
+                                        android:contextClickable="true"
                                         android:clickable="true"
+                                        android:id="@+id/burlay"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1">
@@ -137,30 +141,31 @@
                                             android:layout_marginTop="5dp"/>
 
                                     </RelativeLayout>
-                                    <RelativeLayout
-                                        android:id="@+id/btnProfile"
-                                        android:clickable="true"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        >
-                                        <ImageView
-                                            android:id="@+id/btnacount"
-                                            android:layout_width="70dp"
-                                            android:layout_height="70dp"
-                                            android:src="@drawable/lokal"
-                                            android:layout_centerInParent="true"/>
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="Lokal"
-                                            android:textSize="12sp"
-                                            android:layout_below="@id/btnacount"
-                                            android:layout_centerHorizontal="true"
-                                            android:layout_marginTop="5dp"/>
+<!--                                    <RelativeLayout-->
+<!--                                        android:contextClickable="true"-->
+<!--                                        android:id="@+id/lokal"-->
+<!--                                        android:clickable="true"-->
+<!--                                        android:layout_width="0dp"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:layout_weight="1"-->
+<!--                                        >-->
+<!--                                        <ImageView-->
+<!--                                            android:id="@+id/btnacount"-->
+<!--                                            android:layout_width="70dp"-->
+<!--                                            android:layout_height="70dp"-->
+<!--                                            android:src="@drawable/lokal"-->
+<!--                                            android:layout_centerInParent="true"/>-->
+<!--                                        <TextView-->
+<!--                                            android:layout_width="wrap_content"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:text="Lokal"-->
+<!--                                            android:textSize="12sp"-->
+<!--                                            android:layout_below="@id/btnacount"-->
+<!--                                            android:layout_centerHorizontal="true"-->
+<!--                                            android:layout_marginTop="5dp"/>-->
 
 
-                                    </RelativeLayout>
+<!--                                    </RelativeLayout>-->
 
                                 </LinearLayout>
                             </RelativeLayout>

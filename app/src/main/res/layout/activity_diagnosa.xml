@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Diagnosa">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/ss"
         android:theme="@style/AppTheme.AppBarOverlay">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -18,106 +21,116 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </com.google.android.material.appbar.AppBarLayout>
-    <TextView
-        android:layout_margin="10dp"
+    <LinearLayout
+        android:layout_below="@+id/ss"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pilih Bagian yang akan di diagnosa "/>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:background="@color/dushbrown"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/diagnosa"
-        android:clickable="true"
-        app:cardElevation="5dp"
-        app:cardCornerRadius="10dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:layout_gravity="center">
-        <RelativeLayout
-            android:padding="10dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Bagian yang akan di diagnosa "/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:background="@color/dushbrown"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/daun"
+            android:clickable="true"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center">
+            <RelativeLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:background="@color/dushbrown"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/brg"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/daun"
+                    android:layout_centerInParent="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daun"
+                    android:textSize="12sp"
+                    android:layout_below="@id/brg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:background="@color/dushbrown"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/brg"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/daun"
-                android:layout_centerInParent="true"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daun"
-                android:textSize="12sp"
-                android:layout_below="@id/brg"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:background="@color/dushbrown"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/gejala"
-        app:cardCornerRadius="10dp"
-        android:clickable="true"
-        app:cardElevation="5dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:layout_gravity="center">
-        <RelativeLayout
-            android:background="@color/dushbrown"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/batang"
+            app:cardCornerRadius="10dp"
+            android:clickable="true"
+            app:cardElevation="5dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center">
+            <RelativeLayout
+                android:background="@color/dushbrown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/pesan"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/batang"
+                    android:layout_centerInParent="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Batang"
+                    android:textSize="12sp"
+                    android:layout_below="@id/pesan"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/pesan"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/batang"
-                android:layout_centerInParent="true"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Batang"
-                android:textSize="12sp"
-                android:layout_below="@id/pesan"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView> <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:background="@color/dushbrown"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="10dp"
-        android:id="@+id/go"
-        app:cardCornerRadius="10dp"
-        android:clickable="true"
-        app:cardElevation="5dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:layout_gravity="center">
-        <RelativeLayout
             android:background="@color/dushbrown"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/gg"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/akar"
-                android:layout_centerInParent="true"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Akar"
-                android:textSize="12sp"
-                android:layout_below="@id/gg"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/akar"
+            app:cardCornerRadius="10dp"
+            android:clickable="true"
+            app:cardElevation="5dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_gravity="center">
+            <RelativeLayout
+                android:background="@color/dushbrown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/gg"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/akar"
+                    android:layout_centerInParent="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Akar"
+                    android:textSize="12sp"
+                    android:layout_below="@id/gg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-</LinearLayout>
+    <include layout="@layout/fab"></include>
+
+
+</RelativeLayout>

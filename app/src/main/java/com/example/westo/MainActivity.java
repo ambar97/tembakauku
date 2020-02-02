@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ FloatingActionButton fab,fab1,fab2,fab3,fab4;
 ViewFlipper viewFlipper;
 CardView diagnosa,gejala,penyakit,hama;
 private boolean isFABOpen = false;
+RelativeLayout kas,bur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,32 +31,30 @@ private boolean isFABOpen = false;
         gejala = findViewById(R.id.gejala);
         penyakit = findViewById(R.id.penyakit);
         hama = findViewById(R.id.hama);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        kas = findViewById(R.id.kasturi);
+        bur = findViewById(R.id.burlay);
         viewFlipper = findViewById(R.id.vlipper);
         int image[] = {R.drawable.slide1,R.drawable.slide2,R.drawable.slide3,R.drawable.slide4};
         for (int images:image){
             flipper(images);
         }
-//        fab = findViewById(R.id.fab);
-//        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
-//        fab2 = (FloatingActionButton) findViewById(R.id.fab2);
-//        fab3 = (FloatingActionButton) findViewById(R.id.fab3);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(!isFABOpen){
-//                    showFABMenu();
-//                }else{
-//                    closeFABMenu();
-//                }
-//            }
-//        });
+        kas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,Kasturi.class));
+            }
+        });
+        bur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,Burley.class));
+            }
+        });
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,Diagnosa.class);
-//                finish();
+                finish();
                 startActivity(intent);
             }
         });
@@ -112,17 +112,4 @@ private boolean isFABOpen = false;
         return super.onOptionsItemSelected(item);
     }
 
-//    private void showFABMenu(){
-//        isFABOpen=true;
-//        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-//        fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-//        fab3.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
-//    }
-//
-//    private void closeFABMenu(){
-//        isFABOpen=false;
-//        fab1.animate().translationY(0);
-//        fab2.animate().translationY(0);
-//        fab3.animate().translationY(0);
-//    }
 }

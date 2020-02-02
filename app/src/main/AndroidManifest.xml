@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailPenyakit"></activity>
+        <activity android:name=".Service.LostActivity"></activity>
+        <activity android:name=".detail_diagnosa" />
+        <activity android:name=".DetailPenyakit" />
         <activity android:name=".DetailHama" />
         <activity android:name=".Diagnosa" />
         <activity android:name=".splash">
