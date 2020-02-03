@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.westo.Model.BaseUrlApiModel;
 import com.github.clans.fab.FloatingActionButton;
 
 import java.time.Instant;
@@ -21,6 +23,8 @@ public class DetailHama extends AppCompatActivity {
 TextView nama,ket,penyebab,bagian,latin,solusi;
 ImageView imageView;
 Intent intent;
+    BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
+    String baseUrl = baseUrlApiModel.getBaseURL();
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ Intent intent;
         nama = findViewById(R.id.judul);
         ket = findViewById(R.id.deskripsi);
         fab();
-//        imageView = findViewById(R.id.gambar);
+        imageView = findViewById(R.id.gambar);
         bagian = findViewById(R.id.bagian);
         latin = findViewById(R.id.latin);
         penyebab = findViewById(R.id.penyebab);
@@ -41,6 +45,16 @@ Intent intent;
         intent=getIntent();
         swipeRefreshLayout = findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
+        String bagianTanaman=intent.getStringExtra("bagian");
+        final String isibagian;
+        if (bagianTanaman.equals("1")){
+            isibagian = "Akar";
+        }else if(bagianTanaman.equals("2")){
+            isibagian = "Batang";
+        }else {
+            isibagian = "Daun";
+            ;
+        }
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -49,7 +63,7 @@ Intent intent;
                 ket.setText(intent.getStringExtra("deskripsi"));
                 solusi.setText(intent.getStringExtra("solusi"));
                 penyebab.setText(intent.getStringExtra("penyebab"));
-                bagian.setText(intent.getStringExtra("bagian"));
+                bagian.setText(isibagian);
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -58,8 +72,16 @@ Intent intent;
         ket.setText(intent.getStringExtra("deskripsi"));
         solusi.setText(intent.getStringExtra("solusi"));
         penyebab.setText(intent.getStringExtra("penyebab"));
-        bagian.setText(intent.getStringExtra("bagian"));
+        bagian.setText(isibagian);
+        String gambarUrl = intent.getStringExtra("gambar");
         swipeRefreshLayout.setRefreshing(false);
+        if (!gambarUrl.equals("")){
+            Glide.with(this)
+                    // LOAD URL DARI INTERNET
+                    .load(baseUrl+gambarUrl)
+                    // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                    .into(imageView);
+        }
 
 
     }

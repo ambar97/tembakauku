@@ -10,8 +10,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.westo.Model.BaseUrlApiModel;
 import com.github.clans.fab.FloatingActionButton;
 
 public class DetailPenyakit extends AppCompatActivity {
@@ -19,7 +22,10 @@ public class DetailPenyakit extends AppCompatActivity {
     FloatingActionButton home,penyakit,hama,diagnosa;
     ImageView imageView;
     Intent intent;
+
     SwipeRefreshLayout swipeRefreshLayout;
+    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    String baseUrl = baseUrlApiModel.getBaseURL();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,24 +36,33 @@ public class DetailPenyakit extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nama = findViewById(R.id.judul);
         ket = findViewById(R.id.deskripsi);
-//        imageView = findViewById(R.id.gambar);
+        imageView = findViewById(R.id.gambar);
+
         bagian = findViewById(R.id.bagian);
         latin = findViewById(R.id.latin);
         penyebab = findViewById(R.id.penyebab);
         solusi = findViewById(R.id.solusi);
         intent=getIntent();
+        final String alamatGambar = intent.getStringExtra("gambar");
         swipeRefreshLayout = findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
                 nama.setText(intent.getStringExtra("nama"));
                 ket.setText(intent.getStringExtra("deskripsi"));
                 solusi.setText(intent.getStringExtra("solusi"));
                 penyebab.setText(intent.getStringExtra("penyebab"));
                 bagian.setText(intent.getStringExtra("bagian"));
+                if (!alamatGambar.equals("")){
+                    Glide.with(DetailPenyakit.this)
+                            // LOAD URL DARI INTERNET
+                            .load(baseUrl+alamatGambar)
+                            // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                            .into(imageView);
+                }
                 swipeRefreshLayout.setRefreshing(false);
+
             }
         });
 
@@ -56,6 +71,14 @@ public class DetailPenyakit extends AppCompatActivity {
         solusi.setText(intent.getStringExtra("solusi"));
         penyebab.setText(intent.getStringExtra("penyebab"));
         bagian.setText(intent.getStringExtra("bagian"));
+
+        if (!alamatGambar.equals("")){
+            Glide.with(this)
+                    // LOAD URL DARI INTERNET
+                    .load(baseUrl+alamatGambar)
+                    // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                    .into(imageView);
+        }
         swipeRefreshLayout.setRefreshing(false);
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

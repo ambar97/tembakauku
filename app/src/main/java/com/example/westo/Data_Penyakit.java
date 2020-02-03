@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,12 +44,14 @@ public class Data_Penyakit extends AppCompatActivity {
     String baseUrl = baseUrlApiModel.getBaseURL();
     String ApiGetPenyakit = "api/HamaPenyakit?api=penyakit";
     Context context;
+    ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data__penyakit);
         setTitle("Data Penyakit");
+        progressBar = findViewById(R.id.pb);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fab();
@@ -58,6 +61,7 @@ public class Data_Penyakit extends AppCompatActivity {
         context = this;
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         swipeRefreshLayout = findViewById(R.id.refreshPenyakit);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -65,11 +69,14 @@ public class Data_Penyakit extends AppCompatActivity {
                 loadDataPenyakit();
             }
         });
+        progressBar.setVisibility(View.VISIBLE);
+        swipeRefreshLayout.setEnabled( true );
         loadDataPenyakit();
     }
 
     private void loadDataPenyakit() {
-        swipeRefreshLayout.setEnabled( true );
+
+
         itemPenyakits= new ArrayList<>();
         itemPenyakits.clear();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, baseUrl + ApiGetPenyakit, new Response.Listener<String>() {
@@ -96,8 +103,8 @@ public class Data_Penyakit extends AppCompatActivity {
                                 bagian,
                                 datagetpenyakit.getString("nama_penyebab"),
                                 datagetpenyakit.getString("deskripsi"),
-                        null,
-                        datagetpenyakit.getString("nama_solusi")
+                                datagetpenyakit.getString("gambar"),
+                                datagetpenyakit.getString("nama_solusi")
                         );
                         itemPenyakits.add(listItemPenyakite);
                     }
@@ -120,6 +127,7 @@ public class Data_Penyakit extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
         swipeRefreshLayout.setRefreshing(false);
+        progressBar.setVisibility(View.GONE);
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){

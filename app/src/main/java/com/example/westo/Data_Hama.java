@@ -89,7 +89,7 @@ public class Data_Hama extends AppCompatActivity {
                         JSONObject datagethama = banyakdata.getJSONObject(i);
                         ListItemHama listItemHama = new ListItemHama(
                                 datagethama.getString("nama_penyakit"),
-                        null,
+                        datagethama.getString("gambar"),
                         datagethama.getString("nama_solusi"),
                         datagethama.getString("id_bagian"),
                         datagethama.getString("nama_penyebab"),

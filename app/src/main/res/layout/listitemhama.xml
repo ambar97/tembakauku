@@ -11,14 +11,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="2dp">
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:id="@+id/listitemhama_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:layout_centerVertical="true"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:paddingBottom="5dp"
+                android:layout_marginRight="10dp"
+                />
 
             <TextView
                 android:paddingTop="12dp"

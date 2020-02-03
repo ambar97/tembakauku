@@ -54,7 +54,7 @@ RelativeLayout kas,bur;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,Diagnosa.class);
-                finish();
+//                finish();
                 startActivity(intent);
             }
         });

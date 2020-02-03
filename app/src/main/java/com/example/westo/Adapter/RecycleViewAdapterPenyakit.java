@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.westo.DetailHama;
 import com.example.westo.DetailPenyakit;
+import com.example.westo.Model.BaseUrlApiModel;
 import com.example.westo.Model.ListItemPenyakit;
 import com.example.westo.R;
 
@@ -17,10 +19,13 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecycleViewAdapterPenyakit extends RecyclerView.Adapter<RecycleViewAdapterPenyakit.ViewHolder> {
     Context context;
     private List<ListItemPenyakit> listItemPenyakits;
+    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    String baseUrl = baseUrlApiModel.getBaseURL();
 
     public RecycleViewAdapterPenyakit(Context context, List<ListItemPenyakit> listItemPenyakits) {
         this.context = context;
@@ -48,6 +53,13 @@ public class RecycleViewAdapterPenyakit extends RecyclerView.Adapter<RecycleView
         }
         holder.nama_penyakit.setText(listItemPenyakit.getNama_penyakit());
         holder.bagianPenyakit.setText(bagian);
+        if (!listItemPenyakit.getGambar().equals("")){
+            Glide.with(context)
+                    // LOAD URL DARI INTERNET
+                    .load(baseUrl+listItemPenyakit.getGambar())
+                    // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                    .into(holder.gambar_penyakit);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +84,7 @@ public class RecycleViewAdapterPenyakit extends RecyclerView.Adapter<RecycleView
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nama_penyakit,bagianPenyakit;
-        public ImageView gambar_penyakit;
+        public CircleImageView gambar_penyakit;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

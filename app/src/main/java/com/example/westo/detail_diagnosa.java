@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,6 +52,7 @@ public class detail_diagnosa extends AppCompatActivity {
     SwipeRefreshLayout refreshLayout;
     int counter = 0;
     int urut = 1;
+//    ProgressDialog progressDialog=new ProgressDialog(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,6 @@ public class detail_diagnosa extends AppCompatActivity {
 
         selesai = findViewById(R.id.selesai);
         refreshLayout.setEnabled(true);
-
         loadDataGejala();
 
 
@@ -93,8 +94,8 @@ public class detail_diagnosa extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
-        builder.setTitle("Alert");
-        builder.setMessage("Anda Yakin Ingin Keluar ?");
+        builder.setTitle("Apakah Anda Yakin Ingin Keluar ?");
+        builder.setMessage("Jika anda keluar maka beberapa proses dalam halaman ini akan di gagalkan !");
         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -127,6 +128,10 @@ public class detail_diagnosa extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("F", "onResponse: " + response);
+                ya.setVisibility(View.VISIBLE);
+                tidak.setVisibility(View.VISIBLE);
+                soal.setVisibility(View.VISIBLE);
+                gambarGejala.setVisibility(View.VISIBLE);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray banyakdata = jsonObject.getJSONArray("data");
@@ -158,8 +163,8 @@ public class detail_diagnosa extends AppCompatActivity {
 
     private void soal(final List<ListAturan> listSoal) {
         int i = 0;
-        soal.setText("Apakah " + listSoal.get(i).getNama_gejala());
-        nomorsoal.setText("Soal Ke-" + urut);
+        soal.setText("Apakah " + listSoal.get(i).getNama_gejala()+" ?");
+        nomorsoal.setText("Soal Ke-" + urut+" / "+listSoal.size());
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -172,7 +177,7 @@ public class detail_diagnosa extends AppCompatActivity {
                     tidak.setVisibility(View.GONE);
                     selesai.setVisibility(View.VISIBLE);
                 }else {
-                    nomorsoal.setText("Soal Ke-" + urut);
+                    nomorsoal.setText("Soal Ke-" + urut+" / "+listSoal.size());
                     soal.setText("Apakah " + listSoal.get(counter).getNama_gejala());
                 }
             }
@@ -186,7 +191,7 @@ public class detail_diagnosa extends AppCompatActivity {
                     tidak.setVisibility(View.GONE);
                     selesai.setVisibility(View.VISIBLE);
                 }else {
-                    nomorsoal.setText("Soal Ke-" + urut);
+                    nomorsoal.setText("Soal Ke-" + urut+" / "+listSoal.size());
                     soal.setText("Apakah "+listSoal.get(counter).getNama_gejala());
                 }
             }

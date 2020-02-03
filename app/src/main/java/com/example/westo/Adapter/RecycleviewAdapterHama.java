@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.westo.DetailHama;
+import com.example.westo.Model.BaseUrlApiModel;
 import com.example.westo.Model.ListItemHama;
 import com.example.westo.R;
 
@@ -17,10 +19,13 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RecycleviewAdapterHama extends RecyclerView.Adapter<RecycleviewAdapterHama.ViewHolder> {
     Context context;
     private List<ListItemHama> listItemHamas;
+    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    String baseUrl = baseUrlApiModel.getBaseURL();
 
     public RecycleviewAdapterHama(Context context, List<ListItemHama> listItemHamas) {
         this.context = context;
@@ -39,7 +44,13 @@ public class RecycleviewAdapterHama extends RecyclerView.Adapter<RecycleviewAdap
     public void onBindViewHolder(@NonNull final RecycleviewAdapterHama.ViewHolder holder, int position) {
         final ListItemHama listHama = listItemHamas.get(position);
         holder.namaHama.setText(listHama.getNamaHama());
-//        holder.gambarHama.
+        if (!listHama.getGambar().equals("")){
+            Glide.with(context)
+                    // LOAD URL DARI INTERNET
+                    .load(baseUrl+listHama.getGambar())
+                    // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                    .into(holder.gambarHama);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +73,7 @@ public class RecycleviewAdapterHama extends RecyclerView.Adapter<RecycleviewAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView namaHama;
-        public ImageView gambarHama;
+        public CircleImageView gambarHama;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             namaHama = itemView.findViewById(R.id.litsitemhama_text);

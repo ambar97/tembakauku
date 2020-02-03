@@ -31,5 +31,6 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/listitemhama"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <include layout="@layout/progresbar"/>
     <include layout="@layout/fab"></include>
 </RelativeLayout>
