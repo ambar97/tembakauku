@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -49,7 +50,7 @@ public class detail_diagnosa extends AppCompatActivity {
     String ApiGet;
     List<ArrayJawaban> jawabans = new ArrayList<>();
     List<ListAturan> listAturans = new ArrayList<>();
-    SwipeRefreshLayout refreshLayout;
+
     int counter = 0;
     int urut = 1;
 //    ProgressDialog progressDialog=new ProgressDialog(this);
@@ -61,12 +62,14 @@ public class detail_diagnosa extends AppCompatActivity {
         setTitle("Diagnosa");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
         bagian = intent.getStringExtra("bagian");
         nomorsoal = findViewById(R.id.nosoal);
         soal = findViewById(R.id.soal);
         gambarGejala = findViewById(R.id.gambar_gejala);
-        refreshLayout = findViewById(R.id.ref);
+//        refreshLayout = findViewById(R.id.ref);
         ya = findViewById(R.id.ya);
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +86,6 @@ public class detail_diagnosa extends AppCompatActivity {
         });
 
         selesai = findViewById(R.id.selesai);
-        refreshLayout.setEnabled(true);
         loadDataGejala();
 
 
@@ -158,7 +160,7 @@ public class detail_diagnosa extends AppCompatActivity {
         );
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-        refreshLayout.setEnabled(true);
+//        refreshLayout.setEnabled(true);
     }
 
     private void soal(final List<ListAturan> listSoal) {
@@ -178,7 +180,7 @@ public class detail_diagnosa extends AppCompatActivity {
                     selesai.setVisibility(View.VISIBLE);
                 }else {
                     nomorsoal.setText("Soal Ke-" + urut+" / "+listSoal.size());
-                    soal.setText("Apakah " + listSoal.get(counter).getNama_gejala());
+                    soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
                 }
             }
         });
@@ -192,7 +194,7 @@ public class detail_diagnosa extends AppCompatActivity {
                     selesai.setVisibility(View.VISIBLE);
                 }else {
                     nomorsoal.setText("Soal Ke-" + urut+" / "+listSoal.size());
-                    soal.setText("Apakah "+listSoal.get(counter).getNama_gejala());
+                    soal.setText("Apakah "+listSoal.get(counter).getNama_gejala()+" ?");
                 }
             }
         });
@@ -202,6 +204,7 @@ public class detail_diagnosa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
                 kirimgejala(jawabans);
             }
         });
@@ -241,19 +244,40 @@ public class detail_diagnosa extends AppCompatActivity {
                 }catch (JSONException e){
 
                 }
-
                 Map<String, String> params = new HashMap<>();
-//
-//                params.put("api","diagnosa1");
                 params.put("data",jsonObject.toString());
                 params.put("jumlah",String.valueOf(jawabanList.size()));
-//                params.put("jumlah","2");
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 //        refreshLayout.setEnabled(true);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setTitle("Apakah Anda Yakin Ingin Keluar ?");
+        builder.setMessage("Jika anda keluar maka beberapa proses dalam halaman ini akan di gagalkan !");
+        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                Intent intent = new Intent(detail_diagnosa.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        return false;
     }
 
 }

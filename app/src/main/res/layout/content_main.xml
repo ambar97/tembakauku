@@ -21,14 +21,16 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
+
                 <ViewFlipper
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:id="@+id/vlipper">
                 </ViewFlipper>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="190dp"
                     android:orientation="vertical"
                     android:gravity="center">
                 </LinearLayout>
@@ -41,9 +43,8 @@
                     android:layout_marginRight="10dp">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="3dp">
+                        android:layout_height="175dp"
+                        android:orientation="horizontal">
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
                             android:layout_height="150dp"
@@ -89,7 +90,7 @@
                                         android:background="?android:attr/listDivider" />
                                 </RelativeLayout>
                                 <LinearLayout
-                                    android:layout_marginTop="10dp"
+                                    android:clickable="true"
                                     android:layout_below="@id/relav2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -141,31 +142,7 @@
                                             android:layout_marginTop="5dp"/>
 
                                     </RelativeLayout>
-<!--                                    <RelativeLayout-->
-<!--                                        android:contextClickable="true"-->
-<!--                                        android:id="@+id/lokal"-->
-<!--                                        android:clickable="true"-->
-<!--                                        android:layout_width="0dp"-->
-<!--                                        android:layout_height="wrap_content"-->
-<!--                                        android:layout_weight="1"-->
-<!--                                        >-->
-<!--                                        <ImageView-->
-<!--                                            android:id="@+id/btnacount"-->
-<!--                                            android:layout_width="70dp"-->
-<!--                                            android:layout_height="70dp"-->
-<!--                                            android:src="@drawable/lokal"-->
-<!--                                            android:layout_centerInParent="true"/>-->
-<!--                                        <TextView-->
-<!--                                            android:layout_width="wrap_content"-->
-<!--                                            android:layout_height="wrap_content"-->
-<!--                                            android:text="Lokal"-->
-<!--                                            android:textSize="12sp"-->
-<!--                                            android:layout_below="@id/btnacount"-->
-<!--                                            android:layout_centerHorizontal="true"-->
-<!--                                            android:layout_marginTop="5dp"/>-->
 
-
-<!--                                    </RelativeLayout>-->
 
                                 </LinearLayout>
                             </RelativeLayout>
@@ -334,20 +311,15 @@
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
-                    <!--<View-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="1dp"-->
-                    <!--android:layout_below="@id/saldo"-->
-                    <!--android:layout_marginTop="20dp"-->
-                    <!--android:background="?android:attr/listDivider" />-->
+
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#ffff"
                         android:layout_gravity="center"
-                        android:text="Make with ❤ haha "
-                        android:layout_marginBottom="20dp"/>
+                        android:text="Make with ❤ Lumajang "/>
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
