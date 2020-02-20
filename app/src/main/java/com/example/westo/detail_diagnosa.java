@@ -41,7 +41,7 @@ import java.util.Map;
 public class detail_diagnosa extends AppCompatActivity {
     Intent intent;
     ImageView gambarGejala;
-    TextView nomorsoal, soal,hasil;
+    TextView nomorsoal, soal,hasil,txthasil;
     Button ya, tidak, selesai;
     String bagian, jenis;
     LinearLayout linearLayout1, linearLayout2;
@@ -70,8 +70,9 @@ public class detail_diagnosa extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
         hasil = findViewById(R.id.hasil);
-        linearLayout1 = findViewById(R.id.lay1);
+        txthasil= findViewById(R.id.txthasil);
         linearLayout2 = findViewById(R.id.lay2);
+
         bagian = intent.getStringExtra("bagian");
         nomorsoal = findViewById(R.id.nosoal);
         soal = findViewById(R.id.soal);
@@ -138,6 +139,7 @@ public class detail_diagnosa extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("F", "onResponse: " + response);
                 ya.setVisibility(View.VISIBLE);
+                nomorsoal.setVisibility(View.VISIBLE);
                 tidak.setVisibility(View.VISIBLE);
                 soal.setVisibility(View.VISIBLE);
                 gambarGejala.setVisibility(View.VISIBLE);
@@ -260,8 +262,10 @@ public class detail_diagnosa extends AppCompatActivity {
                 ya.setVisibility(View.GONE);
                 tidak.setVisibility(View.GONE);
                 selesai.setVisibility(View.GONE);
+                soal.setVisibility(View.GONE);
                 linearLayout2.setVisibility(View.VISIBLE);
-//                Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
+                txthasil.setVisibility(View.VISIBLE);
+                Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
                 kirimgejala(jawabans);
             }
         });
