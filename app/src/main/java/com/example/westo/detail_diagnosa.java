@@ -63,14 +63,15 @@ public class detail_diagnosa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_diagnosa);
         setTitle("Diagnosa");
-        linearLayout1 = findViewById(R.id.lay1);
-        linearLayout2 = findViewById(R.id.lay2);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
         hasil = findViewById(R.id.hasil);
+        linearLayout1 = findViewById(R.id.lay1);
+        linearLayout2 = findViewById(R.id.lay2);
         bagian = intent.getStringExtra("bagian");
         nomorsoal = findViewById(R.id.nosoal);
         soal = findViewById(R.id.soal);
@@ -253,7 +254,12 @@ public class detail_diagnosa extends AppCompatActivity {
         selesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearLayout1.setVisibility(View.GONE);
+//                linearLayout1.setVisibility(View.GONE);
+                nomorsoal.setVisibility(View.GONE);
+                gambarGejala.setVisibility(View.GONE);
+                ya.setVisibility(View.GONE);
+                tidak.setVisibility(View.GONE);
+                selesai.setVisibility(View.GONE);
                 linearLayout2.setVisibility(View.VISIBLE);
 //                Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
                 kirimgejala(jawabans);
@@ -281,6 +287,7 @@ public class detail_diagnosa extends AppCompatActivity {
                             hasil.setText(datagetgejala.getString("nama_penyakit"));
                         }
                     }
+
 
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
