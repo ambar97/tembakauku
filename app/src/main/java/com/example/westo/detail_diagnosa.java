@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,9 +41,10 @@ import java.util.Map;
 public class detail_diagnosa extends AppCompatActivity {
     Intent intent;
     ImageView gambarGejala;
-    TextView nomorsoal, soal;
+    TextView nomorsoal, soal,hasil;
     Button ya, tidak, selesai;
     String bagian, jenis;
+    LinearLayout linearLayout1, linearLayout2;
     BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
     String ApiGetakar = "api/diagnosa?api=diagnosa&bagian=1";
@@ -61,11 +63,14 @@ public class detail_diagnosa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_diagnosa);
         setTitle("Diagnosa");
+        linearLayout1 = findViewById(R.id.lay1);
+        linearLayout2 = findViewById(R.id.lay2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
+        hasil = findViewById(R.id.hasil);
         bagian = intent.getStringExtra("bagian");
         nomorsoal = findViewById(R.id.nosoal);
         soal = findViewById(R.id.soal);
@@ -248,7 +253,8 @@ public class detail_diagnosa extends AppCompatActivity {
         selesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                linearLayout1.setVisibility(View.GONE);
+                linearLayout2.setVisibility(View.VISIBLE);
 //                Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
                 kirimgejala(jawabans);
             }
@@ -262,14 +268,19 @@ public class detail_diagnosa extends AppCompatActivity {
                 Log.d("F", "onResponse: " + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    String kode = jsonObject.getString("kode");
-                    String pesan = jsonObject.getString("pesan");
-//                    JSONArray banyakdata = jsonObject.getJSONArray("data");
-                    if (kode.equals("1")) {
-//                        String apa = banyakdata.getString(4);
-//                        Toast.makeText(detail_diagnosa.this, apa, Toast.LENGTH_SHORT).show();
-                    }
+                    JSONArray data = jsonObject.getJSONArray("pilihan");
 
+                    //tampilkan data pilihan dari server
+//                    hasil.setVisibility(View.VISIBLE);
+                    if (data.length() == 0){
+                        hasil.setText("Penyakit tidak di temukan !");
+                    }
+                    else {
+                        for (int i = 0; i < data.length(); i++) {
+                            JSONObject datagetgejala = data.getJSONObject(i);
+                            hasil.setText(datagetgejala.getString("nama_penyakit"));
+                        }
+                    }
 
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
