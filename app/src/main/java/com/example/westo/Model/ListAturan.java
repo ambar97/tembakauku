@@ -2,12 +2,21 @@ package com.example.westo.Model;
 
 public class ListAturan {
 
-    String nama_gejala,gambar,id_gejala;
+    String nama_gejala,gambar,id_gejala,id_penyakit;
 
-    public ListAturan(String nama_gejala, String gambar, String id_gejala) {
+    public ListAturan(String nama_gejala, String gambar, String id_gejala, String id_penyakit) {
         this.nama_gejala = nama_gejala;
         this.gambar = gambar;
         this.id_gejala = id_gejala;
+        this.id_penyakit = id_penyakit;
+    }
+
+    public String getId_penyakit() {
+        return id_penyakit;
+    }
+
+    public void setId_penyakit(String id_penyakit) {
+        this.id_penyakit = id_penyakit;
     }
 
     public String getNama_gejala() {

@@ -27,11 +27,13 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <LinearLayout
+            android:id="@+id/lay1"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/nosoal"
+                android:visibility="gone"
                 android:paddingTop="10dp"
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
@@ -65,7 +67,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tidak"
                     android:text="TIDAK"
-                    android:paddingLeft="5dp"
                     android:background="@drawable/buttontidak"
                     android:textColor="#fff"
                     android:drawableLeft="@drawable/ic_close_black_24dp"
@@ -94,7 +95,33 @@
                 android:visibility="gone"
                 android:textColor="#ffff"
                 android:background="@color/colorPrimary"/>
+            <LinearLayout
+                android:id="@+id/lay2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hasil Diagnosa"
+                    android:id="@+id/txthasil"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hasil"/>
+            </LinearLayout>
         </LinearLayout>
+
+
 
     </ScrollView>
 <!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->

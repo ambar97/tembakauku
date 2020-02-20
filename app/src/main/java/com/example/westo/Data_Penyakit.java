@@ -91,11 +91,11 @@ public class Data_Penyakit extends AppCompatActivity {
                         String aa = datagetpenyakit.getString("id_bagian");
                         String bagian="";
                         if (aa.equals("1")){
-                            bagian = "Batang";
-                        }else if(aa.equals("2")){
-                            bagian = "Daun";
-                        }else {
                             bagian = "Akar";
+                        }else if(aa.equals("2")){
+                            bagian = "Batang";
+                        }else {
+                            bagian = "Daun";
                         }
                         Log.d("hh", "onResponse: "+bagian);
                         ListItemPenyakit listItemPenyakite = new ListItemPenyakit(
