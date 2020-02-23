@@ -59,7 +59,6 @@ RelativeLayout kas,bur;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,Diagnosa.class);
-//                finish();
                 startActivity(intent);
             }
         });
@@ -67,7 +66,6 @@ RelativeLayout kas,bur;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,Data_Gejala.class);
-//                finish();
                 startActivity(intent);
             }
         });

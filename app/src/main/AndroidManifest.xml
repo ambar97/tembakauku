@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".bantuan"></activity>
+        <activity android:name=".detailDiagnosaGo"></activity>
+        <activity android:name=".Service.Hasildiagnosa" />
+        <activity android:name=".bantuan" />
         <activity android:name=".detail_diagnosa" />
         <activity android:name=".DetailPenyakit" />
         <activity android:name=".DetailHama" />

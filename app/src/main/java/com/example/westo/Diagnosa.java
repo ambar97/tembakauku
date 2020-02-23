@@ -49,7 +49,6 @@ public class Diagnosa extends AppCompatActivity {
                 Intent intent = new Intent(Diagnosa.this, detail_diagnosa.class);
                 intent.putExtra("bagian","1");
                 intent.putExtra("diagnosa","1");
-                finish();
                 startActivity(intent);
             }
         });
@@ -59,7 +58,6 @@ public class Diagnosa extends AppCompatActivity {
                 Intent intent = new Intent(Diagnosa.this, detail_diagnosa.class);
                 intent.putExtra("bagian","2");
                 intent.putExtra("diagnosa","2");
-                finish();
                 startActivity(intent);
             }
         });
@@ -69,7 +67,6 @@ public class Diagnosa extends AppCompatActivity {
                 Intent intent = new Intent(Diagnosa.this, detail_diagnosa.class);
                 intent.putExtra("bagian","3");
                 intent.putExtra("diagnosa","3");
-//                finish();
                 startActivity(intent);
             }
         });
