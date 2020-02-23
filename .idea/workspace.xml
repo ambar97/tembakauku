@@ -31,6 +31,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_diagnosa.xml">
+          <provider editor-type-id="android-designer2" />
+=======
 
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider editor-type-id="text-editor">
@@ -38,56 +42,65 @@
               <caret line="20" selection-start-line="20" selection-end-line="20" />
 
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/TablayoutBudidaya.java">
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            <state relative-caret-position="239">
+              <caret line="121" column="51" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/detail_diagnosa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="248" column="48" lean-forward="true" selection-start-line="248" selection-start-column="48" selection-end-line="248" selection-end-column="48" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#861#862#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#5641#5874#0" expanded="true" />
+                <element signature="e#5873#5874#0" expanded="true" />
+                <element signature="method#onBackPressed#0;class#detail_diagnosa#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ArrayJawaban.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-              <folding>
-                <element signature="e#132#133#0" expanded="true" />
-                <element signature="e#166#167#0" expanded="true" />
-                <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#266#267#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_diagnosa.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hasil_diagnosa.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-              <folding>
-                <element signature="e#2375#3737#0" />
-              </folding>
+            <state relative-caret-position="459">
+              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListAturan.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Diagnosa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="96" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
+            <state relative-caret-position="476">
+              <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="60" column="77" selection-start-line="60" selection-start-column="77" selection-end-line="60" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Data_Penyakit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="88" column="46" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="46" />
               <folding>
-                <element signature="e#150#151#0" expanded="true" />
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#238#239#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#onOptionsItemSelected#0;class#Data_Penyakit#0" />
+                <element signature="method#fab#0;class#Data_Penyakit#0" />
               </folding>
             </state>
           </provider>
@@ -96,54 +109,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleViewAdapterPenyakit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="43" column="78" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="78" />
+            <state relative-caret-position="255">
+              <caret line="61" column="9" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="61" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Data_Penyakit.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleviewAdapterHasil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="88" column="46" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="46" />
+            <state relative-caret-position="234">
+              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
               <folding>
-                <element signature="method#fab#0;class#Data_Penyakit#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1308#1309#0" expanded="true" />
+                <element signature="e#1348#1349#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/DetailHama.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/detail_diagnosa.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/detailDiagnosaGo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="268" column="38" lean-forward="true" selection-start-line="268" selection-start-column="38" selection-end-line="268" selection-end-column="38" />
-              <folding>
-                <element signature="e#5811#6044#0" expanded="true" />
-                <element signature="e#6043#6044#0" expanded="true" />
-                <element signature="e#7154#8800#0" expanded="true" />
-                <element signature="e#8799#8800#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListItemGejala.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_hasil.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="85">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+=======
             <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
 
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
@@ -181,6 +187,16 @@
       <find>id_penyaki</find>
       <find>&quot;id_penyakit&quot;:&quot;8&quot;</find>
       <find>refres</find>
+      <find>linear</find>
+      <find>cont</find>
+      <find>adapte</find>
+      <find>adapterPenyakit</find>
+      <find>p</find>
+      <find>hasil</find>
+      <find>kirim</find>
+      <find>conte</find>
+      <find>lay</find>
+      <find>lay1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,12 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_diagnosa.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_data__gejala.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_data__hama.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Diagnosa.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Data_Gejala.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Service/connect.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Service/NoInternet.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/splash.java" />
@@ -221,7 +231,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/buttonabout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/TablayoutBurley.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Fragment/budidaya.java" />
@@ -238,8 +247,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Data_Penyakit.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ArrayJawaban.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListAturan.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail_diagnosa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListHasil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_hasil.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Diagnosa.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/detailDiagnosaGo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleviewAdapterHasil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/westo/detail_diagnosa.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail_diagnosa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_hasil_diagnosa.xml" />
       </list>
     </option>
   </component>
@@ -280,20 +296,6 @@
             <path>
               <item name="westo" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="westo" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Adapter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="westo" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="westo" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="westo" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
@@ -304,18 +306,6 @@
             </path>
             <path>
               <item name="westo" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="westo" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="westo" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -323,9 +313,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+<<<<<<< HEAD
+      <pane id="ProjectPane" />
+=======
 
       <pane id="ProjectPane" />
 
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -495,7 +489,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5011442" side_tool="true" weight="0.23827533" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49885583" visible="true" weight="0.23827533" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49885583" visible="true" weight="0.23827533" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -516,7 +510,7 @@
       <window_info anchor="bottom" id="Run" order="6" weight="0.32872504" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="Debug" order="8" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="9" sideWeight="0.49924356" visible="true" weight="0.3794163" />
+      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.49924356" weight="0.3794163" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Gradle" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
@@ -557,6 +551,8 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
 
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_data__mutu.xml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -694,16 +690,17 @@
         </state>
       </provider>
     </entry>
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/bantuan.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bantuan.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/DetailPenyakit.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -721,11 +718,14 @@
       <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/progresbar.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
+<<<<<<< HEAD
+=======
       <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listitempenyakit.xml">
@@ -735,6 +735,7 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -761,27 +762,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_data__penyakit.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="54" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="20" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_diagnosa.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="22" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -793,13 +778,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#fab#0;class#Data_Gejala#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -930,12 +908,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/TablayoutBudidaya.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="255">
           <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -944,23 +920,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-          <folding>
-            <element signature="e#132#133#0" expanded="true" />
-            <element signature="e#166#167#0" expanded="true" />
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListAturan.java">
+=======
 
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_burley.xml">
 
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleViewAdapterPenyakit.java">
 
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="43" column="78" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="78" />
+        <state relative-caret-position="102">
+          <caret line="6" column="96" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
@@ -971,53 +945,142 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/DetailHama.java">
 
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
+        <state relative-caret-position="833">
           <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Data_Penyakit.java">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_diagnosa.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="88" column="46" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="46" />
-          <folding>
-            <element signature="method#fab#0;class#Data_Penyakit#0" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="22" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listitemhama.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="34" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListItemGejala.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListAturan.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleviewAdapterHama.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="96" selection-start-line="6" selection-start-column="96" selection-end-line="6" selection-end-column="96" />
+        <state relative-caret-position="408">
+          <caret line="75" column="42" lean-forward="true" selection-start-line="74" selection-start-column="7" selection-end-line="75" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListItemPenyakit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="71" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listitempenyakit.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="52" column="40" selection-start-line="5" selection-start-column="4" selection-end-line="52" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Service/Hasildiagnosa.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hasildiagnosa.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_data__penyakit.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleviewAdapterGejala.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Model/ListHasil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+=======
+
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+
+>>>>>>> 02daa4d47991d4914096c81d0e9683d5bd4154e6
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Data_Penyakit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="88" column="46" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="46" />
           <folding>
-            <element signature="e#150#151#0" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#Data_Penyakit#0" />
+            <element signature="method#fab#0;class#Data_Penyakit#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_diagnosa.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Diagnosa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="60" column="77" selection-start-line="60" selection-start-column="77" selection-end-line="60" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_hasil.xml">
       <provider editor-type-id="android-designer2" />
 
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        <state relative-caret-position="85">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleViewAdapterPenyakit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="61" column="9" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="61" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/Adapter/RecycleviewAdapterHasil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
           <folding>
-            <element signature="e#2375#3737#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1031,13 +1094,12 @@
 
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/detail_diagnosa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="268" column="38" lean-forward="true" selection-start-line="268" selection-start-column="38" selection-end-line="268" selection-end-column="38" />
+        <state relative-caret-position="292">
+          <caret line="248" column="48" lean-forward="true" selection-start-line="248" selection-start-column="48" selection-end-line="248" selection-end-column="48" />
           <folding>
-            <element signature="e#5811#6044#0" expanded="true" />
-            <element signature="e#6043#6044#0" expanded="true" />
-            <element signature="e#7154#8800#0" expanded="true" />
-            <element signature="e#8799#8800#0" expanded="true" />
+            <element signature="e#5641#5874#0" expanded="true" />
+            <element signature="e#5873#5874#0" expanded="true" />
+            <element signature="method#onBackPressed#0;class#detail_diagnosa#0" />
           </folding>
 
         </state>
@@ -1051,6 +1113,29 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_diagnosa.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="121" column="51" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_hasil_diagnosa.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/westo/detailDiagnosaGo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

@@ -3,9 +3,12 @@ package com.example.westo;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,9 +28,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.westo.Adapter.RecycleviewAdapterGejala;
+import com.example.westo.Adapter.RecycleviewAdapterHasil;
 import com.example.westo.Model.ArrayJawaban;
 import com.example.westo.Model.BaseUrlApiModel;
 import com.example.westo.Model.ListAturan;
+import com.example.westo.Model.ListHasil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,9 +47,12 @@ import java.util.Map;
 public class detail_diagnosa extends AppCompatActivity {
     Intent intent;
     ImageView gambarGejala;
-    TextView nomorsoal, soal,hasil,txthasil;
+    TextView nomorsoal, soal,keterangan;
     Button ya, tidak, selesai;
+    RecycleviewAdapterHasil adapterHasil;
     String bagian, jenis;
+    RecyclerView recyclerView;
+    Context context;
     LinearLayout linearLayout1, linearLayout2;
     BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
@@ -53,6 +62,7 @@ public class detail_diagnosa extends AppCompatActivity {
     String ApiGet;
     List<ArrayJawaban> jawabans = new ArrayList<>();
     List<ListAturan> listAturans = new ArrayList<>();
+    List<ListHasil> listHasils = new ArrayList<>();
 
     int counter = 0;
     int urut = 1;
@@ -69,15 +79,15 @@ public class detail_diagnosa extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
-        hasil = findViewById(R.id.hasil);
-        txthasil= findViewById(R.id.txthasil);
+        recyclerView = findViewById(R.id.dataHasilDiagnosa);
+        recyclerView.setLayoutManager(new LinearLayoutManager(detail_diagnosa.this));
+        keterangan = findViewById(R.id.keterangan);
         linearLayout2 = findViewById(R.id.lay2);
-
+        linearLayout1 = findViewById(R.id.linerGambar);
         bagian = intent.getStringExtra("bagian");
         nomorsoal = findViewById(R.id.nosoal);
         soal = findViewById(R.id.soal);
         gambarGejala = findViewById(R.id.gambar_gejala);
-//        refreshLayout = findViewById(R.id.ref);
         ya = findViewById(R.id.ya);
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,30 +109,6 @@ public class detail_diagnosa extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setTitle("Apakah Anda Yakin Ingin Keluar ?");
-        builder.setMessage("Jika anda keluar maka beberapa proses dalam halaman ini akan di gagalkan !");
-        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
-                Intent intent = new Intent(detail_diagnosa.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
 
 
     private void loadDataGejala() {
@@ -133,7 +119,6 @@ public class detail_diagnosa extends AppCompatActivity {
         } else {
             ApiGet = ApiGetDaun;
         }
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, baseUrl + ApiGet, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -171,7 +156,6 @@ public class detail_diagnosa extends AppCompatActivity {
         );
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-//        refreshLayout.setEnabled(true);
     }
 
     private void soal(final List<ListAturan> listSoal) {
@@ -256,22 +240,25 @@ public class detail_diagnosa extends AppCompatActivity {
         selesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                linearLayout1.setVisibility(View.GONE);
+                linearLayout1.setVisibility(View.GONE);
                 nomorsoal.setVisibility(View.GONE);
-                gambarGejala.setVisibility(View.GONE);
-                ya.setVisibility(View.GONE);
-                tidak.setVisibility(View.GONE);
+//                gambarGejala.setVisibility(View.GONE);
+//                ya.setVisibility(View.GONE);
+//                tidak.setVisibility(View.GONE);
                 selesai.setVisibility(View.GONE);
-                soal.setVisibility(View.GONE);
+//                soal.setVisibility(View.GONE);
                 linearLayout2.setVisibility(View.VISIBLE);
-                txthasil.setVisibility(View.VISIBLE);
                 Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
                 kirimgejala(jawabans);
             }
         });
     }
+
+    //kirim gejala ke server dan get hasil query server
     private void kirimgejala(final List<ArrayJawaban> jawabanList) {
         String ApiPost = "api/diagnosa";
+        listHasils = new ArrayList<>();
+//        listHasils.clear();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, baseUrl + ApiPost, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -281,18 +268,24 @@ public class detail_diagnosa extends AppCompatActivity {
                     JSONArray data = jsonObject.getJSONArray("pilihan");
 
                     //tampilkan data pilihan dari server
-//                    hasil.setVisibility(View.VISIBLE);
                     if (data.length() == 0){
-                        hasil.setText("Penyakit tidak di temukan !");
-                    }
-                    else {
-                        for (int i = 0; i < data.length(); i++) {
-                            JSONObject datagetgejala = data.getJSONObject(i);
-                            hasil.setText(datagetgejala.getString("nama_penyakit"));
-                        }
+                        keterangan.setText("Penyakit tidak di temukan !");
                     }
 
-
+                    for (int i=0; i<data.length(); i++){
+                        JSONObject datagetpenyakit = data.getJSONObject(i);
+                        ListHasil hasil = new ListHasil(datagetpenyakit.getString("nama_penyakit"),
+                                "",
+                                "",
+                                "",
+                                datagetpenyakit.getString("gambar_penyakit"),
+                                "");
+                        listHasils.add(hasil);
+                    }
+                    adapterHasil = new RecycleviewAdapterHasil(detail_diagnosa.this,listHasils);
+                    recyclerView.setAdapter(adapterHasil);
+                    adapterHasil.notifyDataSetChanged();
+                    Log.d("isilist","Onres"+data);
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -355,5 +348,32 @@ public class detail_diagnosa extends AppCompatActivity {
 
         return false;
     }
+
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setTitle("Apakah Anda Yakin Ingin Keluar ?");
+        builder.setMessage("Jika anda keluar maka beberapa proses dalam halaman ini akan di gagalkan !");
+        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                Intent intent = new Intent(detail_diagnosa.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
 }
