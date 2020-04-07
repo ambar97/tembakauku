@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Data_Mutu extends AppCompatActivity {
+public class xData_Mutu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
