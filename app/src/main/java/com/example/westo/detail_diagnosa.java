@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -79,10 +80,6 @@ public class detail_diagnosa extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
-//        recyclerView = findViewById(R.id.dataHasilDiagnosa);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(detail_diagnosa.this));
-//        keterangan = findViewById(R.id.keterangan);
-//        linearLayout2 = findViewById(R.id.lay2);
         linearLayout1 = findViewById(R.id.linerGambar);
         id = findViewById(R.id.id_gejala);
         bagian = intent.getStringExtra("bagian");
@@ -90,8 +87,6 @@ public class detail_diagnosa extends AppCompatActivity {
         gambarGejala = findViewById(R.id.gambar_gejala);
         ya = findViewById(R.id.ya);
         tidak = findViewById(R.id.tidak);
-//        selesai = findViewById(R.id.selesai);
-
         loadDataGejala();
     }
 
@@ -145,11 +140,11 @@ public class detail_diagnosa extends AppCompatActivity {
 
 
     private void soal(final List<ListAturan> listSoal) {
-        final int i = 0;
-        if (!listSoal.get(i).getGambar().equals("")){
+
+        if (!listSoal.get(counter).getGambar().equals("")){
             Glide.with(this)
                     // LOAD URL DARI INTERNET
-                    .load(baseUrl+listSoal.get(i).getGambar())
+                    .load(baseUrl+listSoal.get(counter).getGambar())
                     // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                     .into(gambarGejala);
         }else {
@@ -161,15 +156,13 @@ public class detail_diagnosa extends AppCompatActivity {
 
         }
         id.setText(listSoal.get(counter).getId_gejala());
-        soal.setText("Apakah " + listSoal.get(i).getNama_gejala()+" ?");
+        soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayJawaban arrayJawaban = new ArrayJawaban(listSoal.get(counter).getId_gejala(),listSoal.get(counter).getId_penyakit());
                 jawabans.add(arrayJawaban);
-
                 urut++;
-
                 if (urut == 1){
                     listAturans.clear();
                     kirimgejala(jawabans);
@@ -197,13 +190,11 @@ public class detail_diagnosa extends AppCompatActivity {
                         }
                             id.setText(listSoal.get(counter).getId_gejala());
                             soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
-
                     }
                 }
-
-
             }
         });
+
         tidak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -221,7 +212,6 @@ public class detail_diagnosa extends AppCompatActivity {
                                     .load("https://tby.jogjaprov.go.id/booking/assets/image/no-image-available.jpg")
                                     // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                                     .into(gambarGejala);
-
                         }
                         id.setText(listSoal.get(counter).getId_gejala());
                         soal.setText("Apakah "+listSoal.get(counter).getNama_gejala()+" ?");
@@ -229,7 +219,6 @@ public class detail_diagnosa extends AppCompatActivity {
                         listAturans.clear();
                         kirimgejala(jawabans);
                     }
-
             }
         });
     }
@@ -283,6 +272,41 @@ public class detail_diagnosa extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    private void tidak_ditemukan(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setTitle("Penyakit Tidak Ditemukan !");
+        builder.setMessage("Tidak ada penyakit terdeteksi dari gejala yang anda pilih.");
+//
+//        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                finish();
+//                Intent intent = new Intent(detail_diagnosa.this, MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.cancel();
+//            }
+//        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                //setelah loading maka akan langsung berpindah ke home activity
+                Intent home=new Intent(detail_diagnosa.this, Diagnosa.class);
+                startActivity(home);
+                finish();
+
+            }
+        },1000);
+    }
+
     //kirim gejala ke server dan get hasil query server
     private void kirimgejala(final List<ArrayJawaban> jawabanList) {
         String ApiPost = "api/diagnosa";
@@ -296,20 +320,22 @@ public class detail_diagnosa extends AppCompatActivity {
                     JSONArray data = jsonObject.getJSONArray("kode");
 
                     //tampilkan data pilihan dari server
-                    if (data.length() == 0){
-                        keterangan.setText("Penyakit tidak di temukan !");
+                    if (data.equals(null)){
+                        tidak_ditemukan();
+                    }else{
+                        for (int i=0; i<data.length(); i++){
+                            JSONObject datagetgejala = data.getJSONObject(i);
+                            ListAturan listAturan = new ListAturan(datagetgejala.getString("nama_gejala"),
+                                    datagetgejala.getString("gambar_gejala"),
+                                    datagetgejala.getString("id_gejala"),
+                                    datagetgejala.getString("id_penyakit"));
+                            listAturans.add(listAturan);
+                        }
+                        soal(listAturans);
+                        counter = jawabanList.size();
                     }
 
-                    for (int i=0; i<data.length(); i++){
-                        JSONObject datagetgejala = data.getJSONObject(i);
-                        ListAturan listAturan = new ListAturan(datagetgejala.getString("nama_gejala"),
-                                datagetgejala.getString("gambar_gejala"),
-                                datagetgejala.getString("id_gejala"),
-                                datagetgejala.getString("id_penyakit"));
-                        listAturans.add(listAturan);
-                    }
-                    soal(listAturans);
-                    counter = jawabanList.size();
+
                     Log.d("isilist","Onres"+data);
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
