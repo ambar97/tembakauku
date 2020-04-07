@@ -50,6 +50,7 @@ public class Diagnosa extends AppCompatActivity {
                 intent.putExtra("bagian","1");
                 intent.putExtra("diagnosa","1");
                 startActivity(intent);
+                finish();
             }
         });
         batang.setOnClickListener(new View.OnClickListener() {

@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Lokal" />
+        <activity android:name=".NoConnection" />
         <activity android:name=".Burley" />
         <activity android:name=".Kasturi" />
         <activity android:name=".Data_Mutu" />
