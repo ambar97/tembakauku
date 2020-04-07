@@ -25,7 +25,7 @@ public class Kasturi extends AppCompatActivity {
         pager=findViewById(R.id.viewpager);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setUpTablayout();
+//        setUpTablayout();
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
