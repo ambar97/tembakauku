@@ -47,7 +47,7 @@ import java.util.Map;
 public class detail_diagnosa extends AppCompatActivity {
     Intent intent;
     ImageView gambarGejala;
-    TextView nomorsoal, soal,keterangan;
+    TextView id, soal,keterangan;
     Button ya, tidak, selesai;
     RecycleviewAdapterHasil adapterHasil;
     String bagian, jenis;
@@ -65,7 +65,7 @@ public class detail_diagnosa extends AppCompatActivity {
     List<ListHasil> listHasils = new ArrayList<>();
 
     int counter = 0;
-    int urut = 1;
+    int urut = 0;
     int urut_kirim = 0;
 //    ProgressDialog progressDialog=new ProgressDialog(this);
 
@@ -74,23 +74,23 @@ public class detail_diagnosa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_diagnosa);
         setTitle("Diagnosa");
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
-        recyclerView = findViewById(R.id.dataHasilDiagnosa);
-        recyclerView.setLayoutManager(new LinearLayoutManager(detail_diagnosa.this));
-        keterangan = findViewById(R.id.keterangan);
-        linearLayout2 = findViewById(R.id.lay2);
+//        recyclerView = findViewById(R.id.dataHasilDiagnosa);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(detail_diagnosa.this));
+//        keterangan = findViewById(R.id.keterangan);
+//        linearLayout2 = findViewById(R.id.lay2);
         linearLayout1 = findViewById(R.id.linerGambar);
+        id = findViewById(R.id.id_gejala);
         bagian = intent.getStringExtra("bagian");
         soal = findViewById(R.id.soal);
         gambarGejala = findViewById(R.id.gambar_gejala);
         ya = findViewById(R.id.ya);
         tidak = findViewById(R.id.tidak);
-        selesai = findViewById(R.id.selesai);
+//        selesai = findViewById(R.id.selesai);
 
         loadDataGejala();
     }
@@ -160,24 +160,26 @@ public class detail_diagnosa extends AppCompatActivity {
                     .into(gambarGejala);
 
         }
+        id.setText(listSoal.get(counter).getId_gejala());
         soal.setText("Apakah " + listSoal.get(i).getNama_gejala()+" ?");
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayJawaban arrayJawaban = new ArrayJawaban(listSoal.get(counter).getId_gejala(),listSoal.get(counter).getId_penyakit());
                 jawabans.add(arrayJawaban);
-                counter++;
+
                 urut++;
 
-                if (counter == 1){
+                if (urut == 1){
                     listAturans.clear();
                     kirimgejala(jawabans);
                     urut_kirim++;
                 }else {
+                    counter++;
                     if (counter >= listSoal.size()){
-                        ya.setVisibility(View.GONE);
-                        tidak.setVisibility(View.GONE);
-                        selesai.setVisibility(View.VISIBLE);
+                        counter--;
+                        ambilhasil(listSoal.get(counter).getId_penyakit());
+                        finish();
                     }else {
                         if (!listSoal.get(counter).getGambar().equals("")){
                             Glide.with(detail_diagnosa.this)
@@ -193,7 +195,9 @@ public class detail_diagnosa extends AppCompatActivity {
                                     .into(gambarGejala);
 
                         }
-                        soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
+                            id.setText(listSoal.get(counter).getId_gejala());
+                            soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
+
                     }
                 }
 
@@ -203,14 +207,8 @@ public class detail_diagnosa extends AppCompatActivity {
         tidak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter++;urut++;
-
-                if (counter >= listSoal.size()){
-                    ya.setVisibility(View.GONE);
-                    tidak.setVisibility(View.GONE);
-                    selesai.setVisibility(View.VISIBLE);
-                }else {
                     if (urut_kirim != 1){
+                        counter++;
                         if (!listSoal.get(counter).getGambar().equals("")){
                             Glide.with(detail_diagnosa.this)
                                     // LOAD URL DARI INTERNET
@@ -225,30 +223,64 @@ public class detail_diagnosa extends AppCompatActivity {
                                     .into(gambarGejala);
 
                         }
+                        id.setText(listSoal.get(counter).getId_gejala());
                         soal.setText("Apakah "+listSoal.get(counter).getNama_gejala()+" ?");
                     }else {
                         listAturans.clear();
                         kirimgejala(jawabans);
                     }
+
+            }
+        });
+    }
+
+    private void ambilhasil(String id_penyakit) {
+            String ApiGethasil = "api/diagnosa?api=ambilhasil&penyakit="+id_penyakit;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, baseUrl + ApiGethasil, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("F", "onResponse: " + response);
+                ya.setVisibility(View.VISIBLE);
+                tidak.setVisibility(View.VISIBLE);
+                soal.setVisibility(View.VISIBLE);
+                gambarGejala.setVisibility(View.VISIBLE);
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray banyakdata = jsonObject.getJSONArray("data");
+//                    for (int i = 0; i < banyakdata.length(); i++) {
+                        JSONObject datagetgejala = banyakdata.getJSONObject(0);
+                        String nm_penyakit = datagetgejala.getString("nama_penyakit");
+                        String bagian= datagetgejala.getString("nama_bagian");
+                        String penyebab = datagetgejala.getString("nama_penyebab");
+                        String solusi= datagetgejala.getString("nama_solusi");
+                        String tipe = datagetgejala.getString("tipe");
+                        String deskripsi = datagetgejala.getString("deskripsi");
+                        String gambar = datagetgejala.getString("gambar");
+//                    }
+                        Intent intent = new Intent(detail_diagnosa.this,detailDiagnosaGo.class);
+                        intent.putExtra("penyakit",nm_penyakit);
+                        intent.putExtra("tipe",tipe);
+                        intent.putExtra("deskripsi",deskripsi);
+                        intent.putExtra("gambar",gambar);
+                        intent.putExtra("bagian",bagian);
+                        intent.putExtra("penyebab",penyebab);
+                        intent.putExtra("solusi",solusi);
+                        startActivity(intent);
+                    Log.d("ggghghgh", "onResponse: " + datagetgejala);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-        });
-
-
-        selesai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                linearLayout1.setVisibility(View.GONE);
-//                gambarGejala.setVisibility(View.GONE);
-//                ya.setVisibility(View.GONE);
-//                tidak.setVisibility(View.GONE);
-                selesai.setVisibility(View.GONE);
-//                soal.setVisibility(View.GONE);
-                linearLayout2.setVisibility(View.VISIBLE);
-//                Toast.makeText(detail_diagnosa.this,"Cie Nunggu Jawaban ya ? :v",Toast.LENGTH_LONG).show();
-//
-            }
-        });
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("P", "onErrorResponse: ", error);
+                    }
+                }
+        );
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
     //kirim gejala ke server dan get hasil query server
@@ -261,7 +293,7 @@ public class detail_diagnosa extends AppCompatActivity {
                 Log.d("F", "onResponse: " + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray data = jsonObject.getJSONArray("pesan");
+                    JSONArray data = jsonObject.getJSONArray("kode");
 
                     //tampilkan data pilihan dari server
                     if (data.length() == 0){
@@ -277,6 +309,7 @@ public class detail_diagnosa extends AppCompatActivity {
                         listAturans.add(listAturan);
                     }
                     soal(listAturans);
+                    counter = jawabanList.size();
                     Log.d("isilist","Onres"+data);
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
