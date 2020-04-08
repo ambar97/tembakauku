@@ -84,7 +84,11 @@
                         android:padding="5dp"
                         android:text="@string/satu_kasturi"
                         android:textStyle="bold" />
-
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/pengolahan_tanah_Kasturi"/>
                     <TextView
 
                         android:layout_width="match_parent"
@@ -113,7 +117,11 @@
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
                         android:text="@string/dua_kasturi" />
-
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/pembibitan_Kasturi"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
