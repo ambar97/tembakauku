@@ -4,23 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.MasaTanam">
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_marginTop="120dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/budidaya_kasturi_masatanam"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/budidaya_kasturi_masatanam" />
+        </LinearLayout>
     </ScrollView>
 
 </FrameLayout>

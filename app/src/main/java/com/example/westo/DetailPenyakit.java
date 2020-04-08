@@ -18,14 +18,15 @@ import com.example.westo.Model.BaseUrlApiModel;
 import com.github.clans.fab.FloatingActionButton;
 
 public class DetailPenyakit extends AppCompatActivity {
-    TextView nama,ket,penyebab,bagian,latin,solusi;
-    FloatingActionButton home,penyakit,hama,diagnosa;
+    TextView nama, ket, penyebab, bagian, latin, solusi;
+    FloatingActionButton home, penyakit, hama, diagnosa;
     ImageView imageView;
     Intent intent;
 
     SwipeRefreshLayout swipeRefreshLayout;
-    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class DetailPenyakit extends AppCompatActivity {
         latin = findViewById(R.id.latin);
         penyebab = findViewById(R.id.penyebab);
         solusi = findViewById(R.id.solusi);
-        intent=getIntent();
+        intent = getIntent();
         final String alamatGambar = intent.getStringExtra("gambar");
         swipeRefreshLayout = findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
@@ -54,10 +55,10 @@ public class DetailPenyakit extends AppCompatActivity {
                 solusi.setText(intent.getStringExtra("solusi"));
                 penyebab.setText(intent.getStringExtra("penyebab"));
                 bagian.setText(intent.getStringExtra("bagian"));
-                if (!alamatGambar.equals("")){
+                if (!alamatGambar.equals("")) {
                     Glide.with(DetailPenyakit.this)
                             // LOAD URL DARI INTERNET
-                            .load(baseUrl+alamatGambar)
+                            .load(baseUrl + alamatGambar)
                             // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                             .into(imageView);
                 }
@@ -72,17 +73,18 @@ public class DetailPenyakit extends AppCompatActivity {
         penyebab.setText(intent.getStringExtra("penyebab"));
         bagian.setText(intent.getStringExtra("bagian"));
 
-        if (!alamatGambar.equals("")){
+        if (!alamatGambar.equals("")) {
             Glide.with(this)
                     // LOAD URL DARI INTERNET
-                    .load(baseUrl+alamatGambar)
+                    .load(baseUrl + alamatGambar)
                     // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                     .into(imageView);
         }
         swipeRefreshLayout.setRefreshing(false);
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
@@ -91,7 +93,8 @@ public class DetailPenyakit extends AppCompatActivity {
 
         }
     }
-    public void fab(){
+
+    public void fab() {
         home = findViewById(R.id.home);
         penyakit = findViewById(R.id.penyakit);
         hama = findViewById(R.id.hama);
@@ -99,25 +102,25 @@ public class DetailPenyakit extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailPenyakit.this,MainActivity.class));
+                startActivity(new Intent(DetailPenyakit.this, MainActivity.class));
             }
         });
         penyakit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailPenyakit.this,Data_Penyakit.class));
+                startActivity(new Intent(DetailPenyakit.this, Data_Penyakit.class));
             }
         });
         hama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailPenyakit.this,Data_Hama.class));
+                startActivity(new Intent(DetailPenyakit.this, Data_Hama.class));
             }
         });
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailPenyakit.this,Diagnosa.class));
+                startActivity(new Intent(DetailPenyakit.this, Diagnosa.class));
             }
         });
     }

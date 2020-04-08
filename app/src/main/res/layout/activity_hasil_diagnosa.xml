@@ -7,124 +7,141 @@
     android:background="@drawable/splash"
     android:orientation="vertical"
     tools:context=".Data_Penyakit">
+
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
         android:id="@+id/ss"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/fab_size_normal">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
 
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_marginRight="10dp"
                 android:id="@+id/penyakit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:layout_marginTop="10dp"
+                    android:id="@+id/gambar_"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/batang"
-                    android:id="@+id/gambar_"/>
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/batang" />
+
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:textSize="15dp"
                     android:text="Dari Hasil diagnosa maka tanaman tembakau anda terkena"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="15dp" />
+
                 <TextView
-                    android:layout_width="match_parent"
                     android:id="@+id/nm_penyakit"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="nama penyakit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:layout_height="wrap_content"/>
+                    android:text="nama penyakit"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical"
-                android:layout_below="@+id/penyakit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/penyakit"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Deskripsi Hama / Penyakit"/>
+                    android:text="Deskripsi Hama / Penyakit"
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_height="match_parent"
                     android:id="@+id/deskripsi"
-                    android:text="deskripsi"/>
-                <TextView
-                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Penyebab Hama / Penyakit"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:text="deskripsi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Penyebab Hama / Penyakit"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/penyebab"
-                    android:text="penyebab"/>
-                <TextView
-                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Cara Penanganan / Solusi"
-                    />
-                <TextView
                     android:layout_marginTop="5dp"
+                    android:text="penyebab" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Cara Penanganan / Solusi"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/solusi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/solusi"
-                    android:text="solusi"/>
+                    android:layout_marginTop="5dp"
+                    android:text="solusi" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="80dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp">
+
                 <LinearLayout
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:gravity="center"
-                    android:layout_height="wrap_content">
+                    android:gravity="center">
+
                     <Button
-                        android:layout_width="120dp"
-                        android:text="Selesai"
-                        android:background="@drawable/gradient"
-                        android:layout_margin="5dp"
-                        android:textColor="#fff"
                         android:id="@+id/beranda"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/gradient"
+                        android:text="Selesai"
+                        android:textColor="#fff" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <include layout="@layout/progresbar"/>
+
+    <include layout="@layout/progresbar" />
 </RelativeLayout>

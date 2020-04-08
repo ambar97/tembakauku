@@ -9,30 +9,31 @@ import android.os.Handler;
 import java.io.IOException;
 
 public class splash extends AppCompatActivity {
-    private int waktu_loading=2000;
+    private int waktu_loading = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        if (isOnline()){
+        if (isOnline()) {
             splash();
-        }else {
+        } else {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
 
                     //setelah loading maka akan langsung berpindah ke home activity
-                    Intent home=new Intent(splash.this, NoConnection.class);
+                    Intent home = new Intent(splash.this, NoConnection.class);
                     startActivity(home);
                     finish();
 
                 }
-            },1000);
+            }, 1000);
         }
 
     }
-    public boolean isOnline(){
+
+    public boolean isOnline() {
         System.out.println("executeCommand");
         Runtime localRuntime = Runtime.getRuntime();
         try {
@@ -55,18 +56,19 @@ public class splash extends AppCompatActivity {
         return false;
 
     }
-    private void splash(){
+
+    private void splash() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
                 //setelah loading maka akan langsung berpindah ke home activity
-                Intent home=new Intent(splash.this, MainActivity.class);
+                Intent home = new Intent(splash.this, MainActivity.class);
                 startActivity(home);
                 finish();
 
             }
-        },waktu_loading);
+        }, waktu_loading);
     }
 
 

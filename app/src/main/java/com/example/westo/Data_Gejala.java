@@ -35,11 +35,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data_Gejala extends AppCompatActivity {
-    FloatingActionButton home,penyakit,hama,diagnosa;
+    FloatingActionButton home, penyakit, hama, diagnosa;
     RecycleviewAdapterGejala adapterGejala;
     List<ListItemGejala> itemGejala = new ArrayList<>();
     RecyclerView recyclerView;
-    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
     String ApiGetHama = "api/HamaPenyakit?api=gejala";
     Context context;
@@ -67,26 +67,27 @@ public class Data_Gejala extends AppCompatActivity {
         });
         loadDataGejala();
     }
-    private void loadDataGejala(){
-        swipeRefreshLayout.setEnabled( true );
-        itemGejala= new ArrayList<>();
+
+    private void loadDataGejala() {
+        swipeRefreshLayout.setEnabled(true);
+        itemGejala = new ArrayList<>();
         itemGejala.clear();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, baseUrl + ApiGetHama, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("F", "onResponse: "+response);
+                Log.d("F", "onResponse: " + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray banyakdata = jsonObject.getJSONArray("data");
-                    for (int i=0; i<banyakdata.length(); i++){
+                    for (int i = 0; i < banyakdata.length(); i++) {
                         JSONObject datagetgejala = banyakdata.getJSONObject(i);
-                        ListItemGejala listItemGejala= new ListItemGejala(
+                        ListItemGejala listItemGejala = new ListItemGejala(
                                 datagetgejala.getString("nama_gejala"),
                                 datagetgejala.getString("id_gejala")
                         );
                         itemGejala.add(listItemGejala);
                     }
-                    adapterGejala = new RecycleviewAdapterGejala(itemGejala,context);
+                    adapterGejala = new RecycleviewAdapterGejala(itemGejala, context);
                     recyclerView.setAdapter(adapterGejala);
                     adapterGejala.notifyDataSetChanged();
 
@@ -98,7 +99,7 @@ public class Data_Gejala extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("P", "onErrorResponse: ",error );
+                        Log.e("P", "onErrorResponse: ", error);
                     }
                 }
         );
@@ -109,7 +110,7 @@ public class Data_Gejala extends AppCompatActivity {
 
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
@@ -118,7 +119,8 @@ public class Data_Gejala extends AppCompatActivity {
 
         }
     }
-    public void fab(){
+
+    public void fab() {
         home = findViewById(R.id.home);
         penyakit = findViewById(R.id.penyakit);
         hama = findViewById(R.id.hama);
@@ -126,25 +128,25 @@ public class Data_Gejala extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this,MainActivity.class));
+                startActivity(new Intent(Data_Gejala.this, MainActivity.class));
             }
         });
         penyakit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this,Data_Penyakit.class));
+                startActivity(new Intent(Data_Gejala.this, Data_Penyakit.class));
             }
         });
         hama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this,Data_Hama.class));
+                startActivity(new Intent(Data_Gejala.this, Data_Hama.class));
             }
         });
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this,Diagnosa.class));
+                startActivity(new Intent(Data_Gejala.this, Diagnosa.class));
             }
         });
     }

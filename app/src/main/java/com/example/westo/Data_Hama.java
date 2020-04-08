@@ -37,11 +37,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data_Hama extends AppCompatActivity {
-    FloatingActionButton home,penyakit,hama,diagnosa;
+    FloatingActionButton home, penyakit, hama, diagnosa;
     RecycleviewAdapterHama adapterHama;
     List<ListItemHama> itemHama = new ArrayList<>();
     RecyclerView recyclerView;
-    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
     String ApiGetHama = "api/HamaPenyakit?api=hama";
     Context context;
@@ -63,7 +63,7 @@ public class Data_Hama extends AppCompatActivity {
         context = this;
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         swipeRefreshLayout = findViewById(R.id.refreshHama);
-        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setEnabled(true);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -74,30 +74,30 @@ public class Data_Hama extends AppCompatActivity {
         loadDataHama();
     }
 
-    private void loadDataHama(){
-        swipeRefreshLayout.setEnabled( true );
-        itemHama= new ArrayList<>();
+    private void loadDataHama() {
+        swipeRefreshLayout.setEnabled(true);
+        itemHama = new ArrayList<>();
         itemHama.clear();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, baseUrl + ApiGetHama, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("F", "onResponse: "+response);
+                Log.d("F", "onResponse: " + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray banyakdata = jsonObject.getJSONArray("data");
-                    for (int i=0; i<banyakdata.length(); i++){
+                    for (int i = 0; i < banyakdata.length(); i++) {
                         JSONObject datagethama = banyakdata.getJSONObject(i);
                         ListItemHama listItemHama = new ListItemHama(
                                 datagethama.getString("nama_penyakit"),
-                        datagethama.getString("gambar"),
-                        datagethama.getString("nama_solusi"),
-                        datagethama.getString("id_bagian"),
-                        datagethama.getString("nama_penyebab"),
-                        datagethama.getString("deskripsi")
+                                datagethama.getString("gambar"),
+                                datagethama.getString("nama_solusi"),
+                                datagethama.getString("id_bagian"),
+                                datagethama.getString("nama_penyebab"),
+                                datagethama.getString("deskripsi")
                         );
                         itemHama.add(listItemHama);
                     }
-                    adapterHama = new RecycleviewAdapterHama(context,itemHama);
+                    adapterHama = new RecycleviewAdapterHama(context, itemHama);
                     recyclerView.setAdapter(adapterHama);
                     adapterHama.notifyDataSetChanged();
 
@@ -109,7 +109,7 @@ public class Data_Hama extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("P", "onErrorResponse: ",error );
+                        Log.e("P", "onErrorResponse: ", error);
                     }
                 }
         );
@@ -120,16 +120,17 @@ public class Data_Hama extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
-            super.onBackPressed();
-            return true;
+                super.onBackPressed();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 
         }
     }
-    public void fab(){
+
+    public void fab() {
         home = findViewById(R.id.home);
         penyakit = findViewById(R.id.penyakit);
         hama = findViewById(R.id.hama);
@@ -137,25 +138,25 @@ public class Data_Hama extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Hama.this,MainActivity.class));
+                startActivity(new Intent(Data_Hama.this, MainActivity.class));
             }
         });
         penyakit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Hama.this,Data_Penyakit.class));
+                startActivity(new Intent(Data_Hama.this, Data_Penyakit.class));
             }
         });
         hama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Hama.this,Data_Hama.class));
+                startActivity(new Intent(Data_Hama.this, Data_Hama.class));
             }
         });
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Hama.this,Diagnosa.class));
+                startActivity(new Intent(Data_Hama.this, Diagnosa.class));
             }
         });
     }

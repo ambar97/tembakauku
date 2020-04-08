@@ -133,51 +133,51 @@ public class detail_diagnosa extends AppCompatActivity {
 
     //menampilkan soal yang sudah di ambil dari api server
     private void soal(final List<ListAturan> listSoal) {
-        if (counter >= listSoal.size()){
+        if (counter >= listSoal.size()) {
             counter--;
             ambilhasil(listSoal.get(counter).getId_penyakit());
-        }else {
+        } else {
             Glide.with(this)
                     // LOAD URL DARI INTERNET
-                    .load(baseUrl+listSoal.get(counter).getGambar())
+                    .load(baseUrl + listSoal.get(counter).getGambar())
                     // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                     .into(gambarGejala);
 
             id.setText(listSoal.get(counter).getId_gejala());
-            soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
+            soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
         }
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayJawaban arrayJawaban = new ArrayJawaban(listSoal.get(counter).getId_gejala(),listSoal.get(counter).getId_penyakit());
+                ArrayJawaban arrayJawaban = new ArrayJawaban(listSoal.get(counter).getId_gejala(), listSoal.get(counter).getId_penyakit());
                 jawabans.add(arrayJawaban);
                 urut++;
-                if (urut == 1){
-                    if (counter >= listSoal.size()){
+                if (urut == 1) {
+                    if (counter >= listSoal.size()) {
                         counter--;
                         ambilhasil(listSoal.get(counter).getId_penyakit());
                         finish();
-                    }else{
+                    } else {
                         listAturans.clear();
                         int urutan = jawabans.size();
                         counter = urutan;
                         kirimgejala(jawabans);
                         urut_kirim++;
                     }
-                }else {
+                } else {
                     counter++;
-                    if (counter >= listSoal.size()){
+                    if (counter >= listSoal.size()) {
                         counter--;
                         ambilhasil(listSoal.get(counter).getId_penyakit());
                         finish();
-                    }else {
-                            Glide.with(detail_diagnosa.this)
-                                    // LOAD URL DARI INTERNET
-                                    .load(baseUrl+listSoal.get(counter).getGambar())
-                                    // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
-                                    .into(gambarGejala);
-                            id.setText(listSoal.get(counter).getId_gejala());
-                            soal.setText("Apakah " + listSoal.get(counter).getNama_gejala()+" ?");
+                    } else {
+                        Glide.with(detail_diagnosa.this)
+                                // LOAD URL DARI INTERNET
+                                .load(baseUrl + listSoal.get(counter).getGambar())
+                                // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                                .into(gambarGejala);
+                        id.setText(listSoal.get(counter).getId_gejala());
+                        soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
                     }
                 }
             }
@@ -186,39 +186,39 @@ public class detail_diagnosa extends AppCompatActivity {
         tidak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    if (urut_kirim != 1){
-                        counter++;
-                        if (listSoal.size() == counter){
-                            tidak_ditemukan();
-                        }else {
-                            Glide.with(detail_diagnosa.this)
-                                    // LOAD URL DARI DB
-                                    .load(baseUrl+listSoal.get(counter).getGambar())
-                                    // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
-                                    .into(gambarGejala);
-                            id.setText(listSoal.get(counter).getId_gejala());
-                            soal.setText("Apakah "+listSoal.get(counter).getNama_gejala()+" ?");
-                        }
-                    }else {
-                        if (listSoal.size() == counter){
-                            tidak_ditemukan();
-                        }else {
-                            listAturans.clear();
-                            int urutan = jawabans.size();
-                            counter = urutan;
-                            kirimgejala(jawabans);
-                        }
-
+                if (urut_kirim != 1) {
+                    counter++;
+                    if (listSoal.size() == counter) {
+                        tidak_ditemukan();
+                    } else {
+                        Glide.with(detail_diagnosa.this)
+                                // LOAD URL DARI DB
+                                .load(baseUrl + listSoal.get(counter).getGambar())
+                                // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+                                .into(gambarGejala);
+                        id.setText(listSoal.get(counter).getId_gejala());
+                        soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
                     }
+                } else {
+                    if (listSoal.size() == counter) {
+                        tidak_ditemukan();
+                    } else {
+                        listAturans.clear();
+                        int urutan = jawabans.size();
+                        counter = urutan;
+                        kirimgejala(jawabans);
+                    }
+
+                }
             }
         });
     }
 
     private void ambilhasil(String id_penyakit) {
-        Intent intent = new Intent(detail_diagnosa.this,detailDiagnosaGo.class);
-        intent.putExtra("id_penyakit",id_penyakit);
-
+        Intent intent = new Intent(detail_diagnosa.this, detailDiagnosaGo.class);
+        intent.putExtra("id_penyakit", id_penyakit);
         startActivity(intent);
+        finish();
     }
 
     //kirim gejala ke server dan get hasil query server
@@ -232,11 +232,11 @@ public class detail_diagnosa extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray data = jsonObject.getJSONArray("kode");
-                    if (data.length() == 0){
+                    if (data.length() == 0) {
                         tidak_ditemukan();
-                    }else{
+                    } else {
                         //tampilkan data pilihan dari server
-                        for (int i=0; i<data.length(); i++){
+                        for (int i = 0; i < data.length(); i++) {
                             JSONObject datagetgejala = data.getJSONObject(i);
                             ListAturan listAturan = new ListAturan(datagetgejala.getString("nama_gejala"),
                                     datagetgejala.getString("gambar_gejala"),
@@ -246,8 +246,8 @@ public class detail_diagnosa extends AppCompatActivity {
                         }
                         soal(listAturans);
                     }
-                    Log.d("counter","counter"+counter);
-                    Log.d("isilist","Onres"+data);
+                    Log.d("counter", "counter" + counter);
+                    Log.d("isilist", "Onres" + data);
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -260,24 +260,24 @@ public class detail_diagnosa extends AppCompatActivity {
                         Log.e("P", "onErrorResponse: ", error);
                     }
                 }
-        ){
+        ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                JSONObject jsonObject =new JSONObject();
-                JSONObject jsonObject1 =new JSONObject();
+                JSONObject jsonObject = new JSONObject();
+                JSONObject jsonObject1 = new JSONObject();
                 try {
-                    for (int i =0; i< jawabanList.size();i++){
-                        jsonObject.put("data"+i,jawabanList.get(i).getId_gejala());
-                        jsonObject1.put("penyakit"+i,jawabanList.get(i).getId_penyakit());
+                    for (int i = 0; i < jawabanList.size(); i++) {
+                        jsonObject.put("data" + i, jawabanList.get(i).getId_gejala());
+                        jsonObject1.put("penyakit" + i, jawabanList.get(i).getId_penyakit());
                     }
-                }catch (JSONException e){
+                } catch (JSONException e) {
 
                 }
                 Map<String, String> params = new HashMap<>();
-                params.put("data",jsonObject.toString());
-                params.put("penyakit",jsonObject1.toString());
-                params.put("api",String.valueOf(jawabanList.size()));
-                params.put("bagian",bagian);
+                params.put("data", jsonObject.toString());
+                params.put("penyakit", jsonObject1.toString());
+                params.put("api", String.valueOf(jawabanList.size()));
+                params.put("bagian", bagian);
                 return params;
             }
         };
@@ -286,7 +286,7 @@ public class detail_diagnosa extends AppCompatActivity {
     }
 
 
-    private void tidak_ditemukan(){
+    private void tidak_ditemukan() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
         builder.setTitle("Penyakit Tidak Ditemukan !");
@@ -296,13 +296,12 @@ public class detail_diagnosa extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent home=new Intent(detail_diagnosa.this, Diagnosa.class);
+                Intent home = new Intent(detail_diagnosa.this, Diagnosa.class);
                 startActivity(home);
                 finish();
             }
-        },3000);
+        }, 3000);
     }
-
 
 
     @Override

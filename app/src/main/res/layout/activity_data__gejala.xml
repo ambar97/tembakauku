@@ -3,35 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Data_Gejala"
-    android:background="@drawable/splash">
+    android:background="@drawable/splash"
+    android:orientation="vertical"
+    tools:context=".Data_Gejala">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ss"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refreshGejala"
-        android:layout_below="@+id/ss"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ss">
+
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
             android:id="@+id/dataGejala_rec"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/itemgejala"/>
+            android:layout_marginTop="20dp"
+            tools:listitem="@layout/itemgejala" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     <include layout="@layout/fab"></include>
 </RelativeLayout>

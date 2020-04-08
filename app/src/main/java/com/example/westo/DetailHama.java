@@ -19,13 +19,14 @@ import com.github.clans.fab.FloatingActionButton;
 import java.time.Instant;
 
 public class DetailHama extends AppCompatActivity {
-    FloatingActionButton home,penyakit,hama,diagnosa;
-TextView nama,ket,penyebab,bagian,latin,solusi;
-ImageView imageView;
-Intent intent;
+    FloatingActionButton home, penyakit, hama, diagnosa;
+    TextView nama, ket, penyebab, bagian, latin, solusi;
+    ImageView imageView;
+    Intent intent;
     BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
     SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +43,16 @@ Intent intent;
         latin = findViewById(R.id.latin);
         penyebab = findViewById(R.id.penyebab);
         solusi = findViewById(R.id.solusi);
-        intent=getIntent();
+        intent = getIntent();
         swipeRefreshLayout = findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
-        String bagianTanaman=intent.getStringExtra("bagian");
+        String bagianTanaman = intent.getStringExtra("bagian");
         final String isibagian;
-        if (bagianTanaman.equals("1")){
+        if (bagianTanaman.equals("1")) {
             isibagian = "Akar";
-        }else if(bagianTanaman.equals("2")){
+        } else if (bagianTanaman.equals("2")) {
             isibagian = "Batang";
-        }else {
+        } else {
             isibagian = "Daun";
             ;
         }
@@ -75,18 +76,19 @@ Intent intent;
         bagian.setText(isibagian);
         String gambarUrl = intent.getStringExtra("gambar");
         swipeRefreshLayout.setRefreshing(false);
-        if (!gambarUrl.equals("")){
+        if (!gambarUrl.equals("")) {
             Glide.with(this)
                     // LOAD URL DARI INTERNET
-                    .load(baseUrl+gambarUrl)
+                    .load(baseUrl + gambarUrl)
                     // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                     .into(imageView);
         }
 
 
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
@@ -95,7 +97,8 @@ Intent intent;
 
         }
     }
-    public void fab(){
+
+    public void fab() {
         home = findViewById(R.id.home);
         penyakit = findViewById(R.id.penyakit);
         hama = findViewById(R.id.hama);
@@ -103,25 +106,25 @@ Intent intent;
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this,MainActivity.class));
+                startActivity(new Intent(DetailHama.this, MainActivity.class));
             }
         });
         penyakit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this,Data_Penyakit.class));
+                startActivity(new Intent(DetailHama.this, Data_Penyakit.class));
             }
         });
         hama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this,Data_Hama.class));
+                startActivity(new Intent(DetailHama.this, Data_Hama.class));
             }
         });
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this,Diagnosa.class));
+                startActivity(new Intent(DetailHama.this, Diagnosa.class));
             }
         });
     }

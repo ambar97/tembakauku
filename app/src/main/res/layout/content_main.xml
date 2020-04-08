@@ -12,73 +12,80 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/splash">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
+
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
                 <ViewFlipper
+                    android:id="@+id/vlipper"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:id="@+id/vlipper">
-                </ViewFlipper>
+                    android:layout_height="250dp"></ViewFlipper>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="190dp"
-                    android:orientation="vertical"
-                    android:gravity="center">
-                </LinearLayout>
+                    android:gravity="center"
+                    android:orientation="vertical"></LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="200dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginTop="200dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="175dp"
                         android:orientation="horizontal">
+
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/btnWallet"
                             android:layout_width="0dp"
                             android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
-                            app:cardElevation="5dp"
-                            app:cardCornerRadius="10dp"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
-                            android:id="@+id/btnWallet"
-                            android:layout_marginRight="5dp"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="5dp">
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@color/dushbrown">
+
                                 <RelativeLayout
+                                    android:id="@+id/relav2"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/relav2">
+                                    android:layout_height="wrap_content">
+
                                     <LinearLayout
+                                        android:id="@+id/hh"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:orientation="vertical"
-                                        android:id="@+id/hh"
-                                        android:gravity="center">
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
                                         <TextView
-                                            android:textStyle="bold"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginTop="10dp"
                                             android:text="MUTU BUDIDAYA"
                                             android:textSize="18sp"
-                                            android:layout_marginLeft="10dp"
-                                            android:layout_marginTop="10dp"/>
+                                            android:textStyle="bold" />
                                     </LinearLayout>
 
 
@@ -89,57 +96,62 @@
                                         android:layout_marginTop="5dp"
                                         android:background="?android:attr/listDivider" />
                                 </RelativeLayout>
+
                                 <LinearLayout
-                                    android:clickable="true"
-                                    android:layout_below="@id/relav2"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/relav2"
+                                    android:clickable="true">
+
                                     <RelativeLayout
-                                        android:contextClickable="true"
-                                        android:clickable="true"
                                         android:id="@+id/kasturi"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1">
+                                        android:layout_weight="1"
+                                        android:clickable="true"
+                                        android:contextClickable="true">
+
                                         <ImageView
                                             android:id="@+id/btndompet"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
-                                            android:src="@drawable/kasturi"
-                                            android:layout_centerInParent="true"/>
+                                            android:layout_centerInParent="true"
+                                            android:src="@drawable/kasturi" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="Kasturi"
-                                            android:textSize="12sp"
                                             android:layout_below="@id/btndompet"
                                             android:layout_centerHorizontal="true"
-                                            android:layout_marginTop="5dp"/>
+                                            android:layout_marginTop="5dp"
+                                            android:text="Kasturi"
+                                            android:textSize="12sp" />
 
                                     </RelativeLayout>
+
                                     <RelativeLayout
-                                        android:contextClickable="true"
-                                        android:clickable="true"
                                         android:id="@+id/burlay"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_weight="1">
+                                        android:layout_weight="1"
+                                        android:clickable="true"
+                                        android:contextClickable="true">
+
                                         <ImageView
                                             android:id="@+id/btnout"
                                             android:layout_width="70dp"
                                             android:layout_height="70dp"
-                                            android:src="@drawable/burley"
-                                            android:layout_centerInParent="true"/>
+                                            android:layout_centerInParent="true"
+                                            android:src="@drawable/burley" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="Burley"
-                                            android:textSize="12sp"
                                             android:layout_below="@id/btnout"
                                             android:layout_centerHorizontal="true"
-                                            android:layout_marginTop="5dp"/>
+                                            android:layout_marginTop="5dp"
+                                            android:text="Burley"
+                                            android:textSize="12sp" />
 
                                     </RelativeLayout>
 
@@ -148,177 +160,199 @@
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_margin="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Mari Diagnosa Penyakit Tembakau Anda"
+                            android:textColor="#ffff"
                             android:textSize="15dp"
-                            android:textColor="#ffff"
-                            android:textStyle="bold"
-                            android:text="Mari Diagnosa Penyakit Tembakau Anda"/>
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="12dp"
+                            android:text="Diagnosa Mudah Dengan Siputu"
                             android:textColor="#ffff"
-                            android:text="Diagnosa Mudah Dengan Siputu"/>
+                            android:textSize="12dp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:elevation="10dp"
                         android:orientation="horizontal">
+
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:background="@color/dushbrown"
-                            android:layout_height="135dp"
-                            android:layout_weight="1"
                             android:id="@+id/diagnosa"
-                            android:clickable="true"
-                            app:cardElevation="5dp"
-                            app:cardCornerRadius="10dp"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginLeft="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="135dp"
                             android:layout_gravity="center"
-                            android:orientation="vertical">
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:background="@color/dushbrown"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="5dp">
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:background="@color/dushbrown"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@color/dushbrown">
+
                                 <ImageView
                                     android:id="@+id/brg"
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
-                                    android:src="@drawable/diagnosa"
-                                    android:layout_centerInParent="true"/>
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/diagnosa" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Diagnosa"
-                                    android:textSize="12sp"
                                     android:layout_below="@id/brg"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"/>
+                                    android:layout_marginTop="5dp"
+                                    android:text="Diagnosa"
+                                    android:textSize="12sp" />
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
+
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:background="@color/dushbrown"
-                            android:layout_height="135dp"
-                            android:layout_weight="1"
                             android:id="@+id/gejala"
-                            app:cardCornerRadius="10dp"
-                            android:clickable="true"
-                            app:cardElevation="5dp"
-                            android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_marginRight="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="135dp"
                             android:layout_gravity="center"
-                            android:orientation="vertical">
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@color/dushbrown"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:orientation="vertical"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="5dp">
+
                             <RelativeLayout
-                                android:background="@color/dushbrown"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@color/dushbrown">
+
                                 <ImageView
                                     android:id="@+id/pesan"
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
-                                    android:src="@drawable/gejala"
-                                    android:layout_centerInParent="true"/>
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/gejala" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Data Gejala"
-                                    android:textSize="12sp"
                                     android:layout_below="@id/pesan"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"/>
+                                    android:layout_marginTop="5dp"
+                                    android:text="Data Gejala"
+                                    android:textSize="12sp" />
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:orientation="horizontal">
+
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:background="@color/dushbrown"
-                            android:layout_height="135dp"
-                            android:layout_weight="1"
                             android:id="@+id/penyakit"
+                            android:layout_width="0dp"
+                            android:layout_height="135dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:background="@color/dushbrown"
                             android:clickable="true"
                             android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_marginRight="15dp"
-                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical"
                             app:cardCornerRadius="10dp"
-                            app:cardElevation="5dp"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
+                            app:cardElevation="5dp">
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:background="@color/dushbrown"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@color/dushbrown">
+
                                 <ImageView
                                     android:id="@+id/histori"
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
-                                    android:src="@drawable/penyakt"
-                                    android:layout_centerInParent="true"/>
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/penyakt" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text=" Data Penyakit"
-                                    android:textSize="12sp"
                                     android:layout_below="@id/histori"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"/>
+                                    android:layout_marginTop="5dp"
+                                    android:text=" Data Penyakit"
+                                    android:textSize="12sp" />
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
+
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/hama"
                             android:layout_width="0dp"
                             android:layout_height="135dp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="10dp"
                             android:layout_weight="1"
                             android:clickable="true"
-                            android:id="@+id/hama"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="5dp"
                             android:foreground="?android:attr/selectableItemBackground"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="5dp">
+
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:background="@color/dushbrown"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@color/dushbrown">
+
                                 <ImageView
                                     android:id="@+id/order"
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
-                                    android:src="@drawable/hama"
-                                    android:layout_centerInParent="true"/>
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/hama" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Data Hama"
-                                    android:textSize="12sp"
                                     android:layout_below="@id/order"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"/>
+                                    android:layout_marginTop="5dp"
+                                    android:text="Data Hama"
+                                    android:textSize="12sp" />
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
+
                     <TextView
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffff"
                         android:layout_gravity="center"
-                        android:text="Make with ❤ Lumajang "/>
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Make with ❤ Lumajang "
+                        android:textColor="#ffff" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>

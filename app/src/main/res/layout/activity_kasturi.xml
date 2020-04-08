@@ -6,229 +6,266 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash"
     tools:context=".Burley">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/ss"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
+
     <ScrollView
-        android:layout_marginTop="@dimen/fab_size_normal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/fab_size_normal">
+
         <LinearLayout
-            android:padding="15dp"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:padding="15dp">
+
             <ImageView
-                android:src="@drawable/kasturi_bg"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:paddingBottom="10dp"/>
+                android:paddingBottom="10dp"
+                android:src="@drawable/kasturi_bg" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="TEMBAKAU KASTURI"
-                android:textStyle="bold"
                 android:textColor="#000"
-                android:gravity="center"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/kasturi"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:text="@string/kasturi" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Langkah – Langkah Penentuan Mutu Budidaya Tembakau Menurut Segi Agronomi"/>
+                android:text="Langkah – Langkah Penentuan Mutu Budidaya Tembakau Menurut Segi Agronomi" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:fontFamily="serif-monospace"
                 android:layout_marginBottom="15dp"
-                android:text="Sumber : PT. SADHANA ARIF NUSA - Lumajang"/>
+                android:fontFamily="serif-monospace"
+                android:text="Sumber : PT. SADHANA ARIF NUSA - Lumajang"
+                android:textSize="10dp" />
+
             <androidx.cardview.widget.CardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="70dp"
-                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textStyle="bold"
-                        android:padding="5dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/satu_kasturi"/>
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="@string/satu_kasturi"
+                        android:textStyle="bold" />
+
                     <TextView
 
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_satu_ksturi"/>
+                        android:text="@string/isi_satu_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 style="@style/Base.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/dua_kasturi"/>
+                        android:padding="5dp"
+                        android:text="@string/dua_kasturi" />
+
                     <TextView
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_dua_ksturi"/>
+                        android:text="@string/isi_dua_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="70dp"
-                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textStyle="bold"
-                        android:padding="5dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tiga_kasturi"/>
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="@string/tiga_kasturi"
+                        android:textStyle="bold" />
+
                     <TextView
 
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_tiga_ksturi"/>
+                        android:text="@string/isi_tiga_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 style="@style/Base.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/empat_kasturi"/>
+                        android:padding="5dp"
+                        android:text="@string/empat_kasturi" />
+
                     <TextView
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_empat_ksturi"/>
+                        android:text="@string/isi_empat_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="70dp"
-                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textStyle="bold"
-                        android:padding="5dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lima_kasturi"/>
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="@string/lima_kasturi"
+                        android:textStyle="bold" />
+
                     <TextView
 
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_5_ksturi"/>
+                        android:text="@string/isi_5_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 style="@style/Base.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/enam_kasturi"/>
+                        android:padding="5dp"
+                        android:text="@string/enam_kasturi" />
+
                     <TextView
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_6_ksturi"/>
+                        android:text="@string/isi_6_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="70dp"
-                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_marginBottom="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
-                        android:textStyle="bold"
-                        android:padding="5dp"
-                        android:layout_marginBottom="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tujuh_kasturi"/>
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="@string/tujuh_kasturi"
+                        android:textStyle="bold" />
+
                     <TextView
 
-                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/isi_7_ksturi"/>
+                        android:text="@string/isi_7_ksturi" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

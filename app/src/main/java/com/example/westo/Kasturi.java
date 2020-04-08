@@ -15,20 +15,22 @@ public class Kasturi extends AppCompatActivity {
     TabLayout tabLayout;
     TablayoutBudidaya tablayoutBudidaya;
     ViewPager pager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kasturi);
         setTitle("Tembakau Kasturi");
         Toolbar toolbar = findViewById(R.id.toolbar);
-        tabLayout=findViewById(R.id.tablayout);
-        pager=findViewById(R.id.viewpager);
+        tabLayout = findViewById(R.id.tablayout);
+        pager = findViewById(R.id.viewpager);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        setUpTablayout();
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
@@ -37,7 +39,8 @@ public class Kasturi extends AppCompatActivity {
 
         }
     }
-    private void setUpTablayout(){
+
+    private void setUpTablayout() {
         tabLayout.addTab(tabLayout.newTab().setText("Pembibitan"));
         tabLayout.addTab(tabLayout.newTab().setText("Masa Tanam"));
         tabLayout.addTab(tabLayout.newTab().setText("Panen"));

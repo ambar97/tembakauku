@@ -36,16 +36,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data_Penyakit extends AppCompatActivity {
-    FloatingActionButton home,penyakit,hama,diagnosa;
+    FloatingActionButton home, penyakit, hama, diagnosa;
     RecycleViewAdapterPenyakit adapterPenyakit;
     List<ListItemPenyakit> itemPenyakits = new ArrayList<>();
     RecyclerView recyclerView;
-    BaseUrlApiModel baseUrlApiModel=new BaseUrlApiModel();
+    BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
     String ApiGetPenyakit = "api/HamaPenyakit?api=penyakit";
     Context context;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,34 +71,34 @@ public class Data_Penyakit extends AppCompatActivity {
             }
         });
         progressBar.setVisibility(View.VISIBLE);
-        swipeRefreshLayout.setEnabled( true );
+        swipeRefreshLayout.setEnabled(true);
         loadDataPenyakit();
     }
 
     private void loadDataPenyakit() {
 
 
-        itemPenyakits= new ArrayList<>();
+        itemPenyakits = new ArrayList<>();
         itemPenyakits.clear();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, baseUrl + ApiGetPenyakit, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("F", "onResponse: "+response);
+                Log.d("F", "onResponse: " + response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray banyakdata = jsonObject.getJSONArray("data");
-                    for (int i=0; i<banyakdata.length(); i++){
+                    for (int i = 0; i < banyakdata.length(); i++) {
                         JSONObject datagetpenyakit = banyakdata.getJSONObject(i);
                         String aa = datagetpenyakit.getString("id_bagian");
-                        String bagian="";
-                        if (aa.equals("1")){
+                        String bagian = "";
+                        if (aa.equals("1")) {
                             bagian = "Akar";
-                        }else if(aa.equals("2")){
+                        } else if (aa.equals("2")) {
                             bagian = "Batang";
-                        }else {
+                        } else {
                             bagian = "Daun";
                         }
-                        Log.d("hh", "onResponse: "+bagian);
+                        Log.d("hh", "onResponse: " + bagian);
                         ListItemPenyakit listItemPenyakite = new ListItemPenyakit(
                                 datagetpenyakit.getString("nama_penyakit"),
                                 bagian,
@@ -108,7 +109,7 @@ public class Data_Penyakit extends AppCompatActivity {
                         );
                         itemPenyakits.add(listItemPenyakite);
                     }
-                    adapterPenyakit = new RecycleViewAdapterPenyakit(context,itemPenyakits);
+                    adapterPenyakit = new RecycleViewAdapterPenyakit(context, itemPenyakits);
                     recyclerView.setAdapter(adapterPenyakit);
                     adapterPenyakit.notifyDataSetChanged();
 
@@ -120,7 +121,7 @@ public class Data_Penyakit extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("P", "onErrorResponse: ",error );
+                        Log.e("P", "onErrorResponse: ", error);
                     }
                 }
         );
@@ -129,8 +130,9 @@ public class Data_Penyakit extends AppCompatActivity {
         swipeRefreshLayout.setRefreshing(false);
         progressBar.setVisibility(View.GONE);
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
@@ -139,7 +141,8 @@ public class Data_Penyakit extends AppCompatActivity {
 
         }
     }
-    public void fab(){
+
+    public void fab() {
         home = findViewById(R.id.home);
         penyakit = findViewById(R.id.penyakit);
         hama = findViewById(R.id.hama);
@@ -147,25 +150,25 @@ public class Data_Penyakit extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this,MainActivity.class));
+                startActivity(new Intent(Data_Penyakit.this, MainActivity.class));
             }
         });
         penyakit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this,Data_Penyakit.class));
+                startActivity(new Intent(Data_Penyakit.this, Data_Penyakit.class));
             }
         });
         hama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this,Data_Hama.class));
+                startActivity(new Intent(Data_Penyakit.this, Data_Hama.class));
             }
         });
         diagnosa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this,Diagnosa.class));
+                startActivity(new Intent(Data_Penyakit.this, Diagnosa.class));
             }
         });
     }

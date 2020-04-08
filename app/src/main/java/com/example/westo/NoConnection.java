@@ -10,14 +10,15 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 public class NoConnection extends AppCompatActivity {
-Button coba;
-ProgressBar progressBar;
+    Button coba;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noconnection);
         progressBar = findViewById(R.id.progres);
-        coba=findViewById(R.id.coba);
+        coba = findViewById(R.id.coba);
         coba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,12 +28,12 @@ ProgressBar progressBar;
                     public void run() {
 
                         //setelah loading maka akan langsung berpindah ke home activity
-                        Intent home=new Intent(NoConnection.this, splash.class);
+                        Intent home = new Intent(NoConnection.this, splash.class);
                         startActivity(home);
                         finish();
 
                     }
-                },1000);
+                }, 1000);
             }
         });
 
