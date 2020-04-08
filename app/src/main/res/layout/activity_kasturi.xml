@@ -88,7 +88,7 @@
                         android:layout_width="120dp"
                         android:layout_gravity="center"
                         android:layout_height="120dp"
-                        android:src="@drawable/pengolahan_tanah_Kasturi"/>
+                        android:src="@drawable/pengolahan_tanah_kasturi"/>
                     <TextView
 
                         android:layout_width="match_parent"
@@ -121,7 +121,7 @@
                         android:layout_width="120dp"
                         android:layout_gravity="center"
                         android:layout_height="120dp"
-                        android:src="@drawable/pembibitan_Kasturi"/>
+                        android:src="@drawable/pembibitan_kasturi"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
