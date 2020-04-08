@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -65,6 +66,7 @@ public class detail_diagnosa extends AppCompatActivity {
     int counter = 0;
     int urut = 0;
     int urut_kirim = 0;
+    int status_kirim = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +145,7 @@ public class detail_diagnosa extends AppCompatActivity {
                     // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                     .into(gambarGejala);
 
-            id.setText(listSoal.get(counter).getId_gejala());
+//            id.setText(listSoal.get(counter).getId_gejala());
             soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
         }
         ya.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +178,7 @@ public class detail_diagnosa extends AppCompatActivity {
                                 .load(baseUrl + listSoal.get(counter).getGambar())
                                 // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                                 .into(gambarGejala);
-                        id.setText(listSoal.get(counter).getId_gejala());
+//                        id.setText(listSoal.get(counter).getId_gejala());
                         soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
                     }
                 }
@@ -196,7 +198,7 @@ public class detail_diagnosa extends AppCompatActivity {
                                 .load(baseUrl + listSoal.get(counter).getGambar())
                                 // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
                                 .into(gambarGejala);
-                        id.setText(listSoal.get(counter).getId_gejala());
+//                        id.setText(listSoal.get(counter).getId_gejala());
                         soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
                     }
                 } else {
@@ -206,6 +208,7 @@ public class detail_diagnosa extends AppCompatActivity {
                         listAturans.clear();
                         int urutan = jawabans.size();
                         counter = urutan;
+                        status_kirim++;
                         kirimgejala(jawabans);
                     }
 
@@ -232,7 +235,7 @@ public class detail_diagnosa extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray data = jsonObject.getJSONArray("kode");
-                    if (data.length() == 0) {
+                    if (data.isNull(0)) {
                         tidak_ditemukan();
                     } else {
                         //tampilkan data pilihan dari server
@@ -278,6 +281,7 @@ public class detail_diagnosa extends AppCompatActivity {
                 params.put("penyakit", jsonObject1.toString());
                 params.put("api", String.valueOf(jawabanList.size()));
                 params.put("bagian", bagian);
+                params.put("status_kirim",Integer.toString(status_kirim));
                 return params;
             }
         };
@@ -287,12 +291,10 @@ public class detail_diagnosa extends AppCompatActivity {
 
 
     private void tidak_ditemukan() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setTitle("Penyakit Tidak Ditemukan !");
-        builder.setMessage("Tidak ada penyakit terdeteksi dari gejala yang anda pilih.");
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setTitle("Penyakit Tidak Ditemukan !");
+        dialog.show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
