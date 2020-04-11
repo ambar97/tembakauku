@@ -7,6 +7,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,8 +20,7 @@ import com.github.clans.fab.FloatingActionButton;
 import java.time.Instant;
 
 public class DetailHama extends AppCompatActivity {
-    FloatingActionButton home, penyakit, hama, diagnosa;
-    TextView nama, ket, penyebab, bagian, latin, solusi;
+    TextView nama, ket, penyebab, bagian, solusi;
     ImageView imageView;
     Intent intent;
     BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
@@ -35,14 +35,14 @@ public class DetailHama extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         nama = findViewById(R.id.judul);
         ket = findViewById(R.id.deskripsi);
-        fab();
         imageView = findViewById(R.id.gambar);
         bagian = findViewById(R.id.bagian);
-        latin = findViewById(R.id.latin);
         penyebab = findViewById(R.id.penyebab);
         solusi = findViewById(R.id.solusi);
+
         intent = getIntent();
         swipeRefreshLayout = findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
@@ -71,9 +71,10 @@ public class DetailHama extends AppCompatActivity {
 
         nama.setText(intent.getStringExtra("nama"));
         ket.setText(intent.getStringExtra("deskripsi"));
-        solusi.setText(intent.getStringExtra("solusi"));
+        solusi.setText(Html.fromHtml(intent.getStringExtra("solusi")));
         penyebab.setText(intent.getStringExtra("penyebab"));
         bagian.setText(isibagian);
+
         String gambarUrl = intent.getStringExtra("gambar");
         swipeRefreshLayout.setRefreshing(false);
         if (!gambarUrl.equals("")) {
@@ -98,34 +99,5 @@ public class DetailHama extends AppCompatActivity {
         }
     }
 
-    public void fab() {
-        home = findViewById(R.id.home);
-        penyakit = findViewById(R.id.penyakit);
-        hama = findViewById(R.id.hama);
-        diagnosa = findViewById(R.id.diagnosa);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this, MainActivity.class));
-            }
-        });
-        penyakit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this, Data_Penyakit.class));
-            }
-        });
-        hama.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this, Data_Hama.class));
-            }
-        });
-        diagnosa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DetailHama.this, Diagnosa.class));
-            }
-        });
-    }
+
 }

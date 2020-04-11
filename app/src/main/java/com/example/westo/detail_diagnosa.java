@@ -31,11 +31,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.westo.Adapter.RecycleviewAdapterGejala;
-import com.example.westo.Adapter.RecycleviewAdapterHasil;
 import com.example.westo.Model.ArrayJawaban;
 import com.example.westo.Model.BaseUrlApiModel;
 import com.example.westo.Model.ListAturan;
-import com.example.westo.Model.ListHasil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,13 +53,12 @@ public class detail_diagnosa extends AppCompatActivity {
     LinearLayout linearLayout1, linearLayout2;
     BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
-    String ApiGetakar = "api/diagnosa?api=diagnosa&bagian=1";
+        String ApiGetakar = "api/diagnosa?api=diagnosa&bagian=1";
     String ApiGetBatang = "api/diagnosa?api=diagnosa&bagian=2";
     String ApiGetDaun = "api/diagnosa?api=diagnosa&bagian=3";
     String ApiGet;
     List<ArrayJawaban> jawabans = new ArrayList<>();
     List<ListAturan> listAturans = new ArrayList<>();
-    List<ListHasil> listHasils = new ArrayList<>();
 
     int counter = 0;
     int urut = 0;
@@ -115,6 +112,7 @@ public class detail_diagnosa extends AppCompatActivity {
                                 datagetgejala.getString("id_penyakit"));
                         listAturans.add(listAturan);
                     }
+
                     soal(listAturans);
                     Log.d("ggghghgh", "onResponse: " + listAturans);
                 } catch (JSONException e) {
@@ -148,6 +146,7 @@ public class detail_diagnosa extends AppCompatActivity {
 //            id.setText(listSoal.get(counter).getId_gejala());
             soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
         }
+
         ya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,24 +154,31 @@ public class detail_diagnosa extends AppCompatActivity {
                 jawabans.add(arrayJawaban);
                 urut++;
                 if (urut == 1) {
+                    //apakah nilai conter >= banyak soal ?
                     if (counter >= listSoal.size()) {
                         counter--;
                         ambilhasil(listSoal.get(counter).getId_penyakit());
                         finish();
                     } else {
+                        //ambil data ke db yang sesuai dengan mayor dipilih, data soal di kosongkan
                         listAturans.clear();
                         int urutan = jawabans.size();
+                        //mengatur counter = banyak data dari jawaban terpilih
                         counter = urutan;
+                        //menjalankan action fungsi kirim gejala
                         kirimgejala(jawabans);
+                        //urutt kirim di tambah 1
                         urut_kirim++;
                     }
                 } else {
                     counter++;
+                    //apakah nilai conter >= banyak soal ?
                     if (counter >= listSoal.size()) {
                         counter--;
                         ambilhasil(listSoal.get(counter).getId_penyakit());
                         finish();
                     } else {
+                        //memunculkan data gejala selanjutnya dari penyakit terpilih
                         Glide.with(detail_diagnosa.this)
                                 // LOAD URL DARI INTERNET
                                 .load(baseUrl + listSoal.get(counter).getGambar())
@@ -202,7 +208,9 @@ public class detail_diagnosa extends AppCompatActivity {
                         soal.setText("Apakah " + listSoal.get(counter).getNama_gejala() + " ?");
                     }
                 } else {
+//                    cek apakah banyak data di list soal = nilai counter
                     if (listSoal.size() == counter) {
+                        //keluar alert
                         tidak_ditemukan();
                     } else {
                         listAturans.clear();
@@ -217,17 +225,11 @@ public class detail_diagnosa extends AppCompatActivity {
         });
     }
 
-    private void ambilhasil(String id_penyakit) {
-        Intent intent = new Intent(detail_diagnosa.this, detailDiagnosaGo.class);
-        intent.putExtra("id_penyakit", id_penyakit);
-        startActivity(intent);
-        finish();
-    }
+
 
     //kirim gejala ke server dan get hasil query server
     private void kirimgejala(final List<ArrayJawaban> jawabanList) {
         String ApiPost = "api/diagnosa";
-        listHasils = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, baseUrl + ApiPost, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -270,6 +272,7 @@ public class detail_diagnosa extends AppCompatActivity {
                 JSONObject jsonObject1 = new JSONObject();
                 try {
                     for (int i = 0; i < jawabanList.size(); i++) {
+                        //menampung data id gejala ke dalam bentuk jason
                         jsonObject.put("data" + i, jawabanList.get(i).getId_gejala());
                         jsonObject1.put("penyakit" + i, jawabanList.get(i).getId_penyakit());
                     }
@@ -287,6 +290,13 @@ public class detail_diagnosa extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    private void ambilhasil(String id_penyakit) {
+        Intent intent = new Intent(detail_diagnosa.this, detailDiagnosaGo.class);
+        intent.putExtra("id_penyakit", id_penyakit);
+        startActivity(intent);
+        finish();
     }
 
 

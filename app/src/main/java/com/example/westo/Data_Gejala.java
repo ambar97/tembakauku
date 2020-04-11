@@ -35,7 +35,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data_Gejala extends AppCompatActivity {
-    FloatingActionButton home, penyakit, hama, diagnosa;
     RecycleviewAdapterGejala adapterGejala;
     List<ListItemGejala> itemGejala = new ArrayList<>();
     RecyclerView recyclerView;
@@ -50,7 +49,6 @@ public class Data_Gejala extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data__gejala);
         setTitle("Data Gejala");
-        fab();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -120,34 +118,4 @@ public class Data_Gejala extends AppCompatActivity {
         }
     }
 
-    public void fab() {
-        home = findViewById(R.id.home);
-        penyakit = findViewById(R.id.penyakit);
-        hama = findViewById(R.id.hama);
-        diagnosa = findViewById(R.id.diagnosa);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this, MainActivity.class));
-            }
-        });
-        penyakit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this, Data_Penyakit.class));
-            }
-        });
-        hama.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this, Data_Hama.class));
-            }
-        });
-        diagnosa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Gejala.this, Diagnosa.class));
-            }
-        });
-    }
 }

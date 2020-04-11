@@ -85,7 +85,7 @@
                         android:text="@string/satu_kasturi"
                         android:textStyle="bold" />
                     <ImageView
-                        android:layout_width="120dp"
+                        android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:layout_height="120dp"
                         android:src="@drawable/pengolahan_tanah_kasturi"/>
@@ -118,7 +118,7 @@
                         android:padding="5dp"
                         android:text="@string/dua_kasturi" />
                     <ImageView
-                        android:layout_width="120dp"
+                        android:layout_width="match_parent"
                         android:layout_gravity="center"
                         android:layout_height="120dp"
                         android:src="@drawable/pembibitan_kasturi"/>
@@ -150,7 +150,11 @@
                         android:padding="5dp"
                         android:text="@string/tiga_kasturi"
                         android:textStyle="bold" />
-
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/penebaran_bibit_kasturi"/>
                     <TextView
 
                         android:layout_width="match_parent"
@@ -179,7 +183,11 @@
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
                         android:text="@string/empat_kasturi" />
-
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/sekam_tembakau_burley_dan_kasturi"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -208,7 +216,11 @@
                         android:padding="5dp"
                         android:text="@string/lima_kasturi"
                         android:textStyle="bold" />
-
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/plastik_burley_dan_kasturi"/>
                     <TextView
 
                         android:layout_width="match_parent"
@@ -237,7 +249,11 @@
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
                         android:text="@string/enam_kasturi" />
-
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/cliping_kas"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -266,7 +282,11 @@
                         android:padding="5dp"
                         android:text="@string/tujuh_kasturi"
                         android:textStyle="bold" />
-
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="120dp"
+                        android:src="@drawable/panen_kasturi"/>
                     <TextView
 
                         android:layout_width="match_parent"

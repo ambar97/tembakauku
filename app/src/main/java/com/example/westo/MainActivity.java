@@ -20,7 +20,6 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
-    FloatingActionButton fab, fab1, fab2, fab3, fab4;
     ViewFlipper viewFlipper;
     CardView diagnosa, gejala, penyakit, hama;
     private boolean isFABOpen = false;

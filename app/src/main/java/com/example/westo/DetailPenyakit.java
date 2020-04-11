@@ -7,6 +7,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -69,7 +70,7 @@ public class DetailPenyakit extends AppCompatActivity {
 
         nama.setText(intent.getStringExtra("nama"));
         ket.setText(intent.getStringExtra("deskripsi"));
-        solusi.setText(intent.getStringExtra("solusi"));
+        solusi.setText(Html.fromHtml(intent.getStringExtra("solusi")));
         penyebab.setText(intent.getStringExtra("penyebab"));
         bagian.setText(intent.getStringExtra("bagian"));
 

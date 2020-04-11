@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 public class Diagnosa extends AppCompatActivity {
     CardView akar, batang, daun;
-    FloatingActionButton home, penyakit, hama, diagnosa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class Diagnosa extends AppCompatActivity {
         akar = findViewById(R.id.akar);
         batang = findViewById(R.id.batang);
         daun = findViewById(R.id.daun);
-        fab();
         akar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,34 +84,4 @@ public class Diagnosa extends AppCompatActivity {
         }
     }
 
-    public void fab() {
-        home = findViewById(R.id.home);
-        penyakit = findViewById(R.id.penyakit);
-        hama = findViewById(R.id.hama);
-        diagnosa = findViewById(R.id.diagnosa);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Diagnosa.this, MainActivity.class));
-            }
-        });
-        penyakit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Diagnosa.this, Data_Penyakit.class));
-            }
-        });
-        hama.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Diagnosa.this, Data_Hama.class));
-            }
-        });
-        diagnosa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Diagnosa.this, Diagnosa.class));
-            }
-        });
-    }
 }
