@@ -50,10 +50,9 @@ public class detail_diagnosa extends AppCompatActivity {
     TextView id, soal;
     Button ya, tidak;
     String bagian;
-    LinearLayout linearLayout1, linearLayout2;
     BaseUrlApiModel baseUrlApiModel = new BaseUrlApiModel();
     String baseUrl = baseUrlApiModel.getBaseURL();
-        String ApiGetakar = "api/diagnosa?api=diagnosa&bagian=1";
+    String ApiGetakar = "api/diagnosa?api=diagnosa&bagian=1";
     String ApiGetBatang = "api/diagnosa?api=diagnosa&bagian=2";
     String ApiGetDaun = "api/diagnosa?api=diagnosa&bagian=3";
     String ApiGet;
@@ -75,7 +74,6 @@ public class detail_diagnosa extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black_24dp);
         intent = getIntent();
-        linearLayout1 = findViewById(R.id.linerGambar);
         id = findViewById(R.id.id_gejala);
         bagian = intent.getStringExtra("bagian");
         soal = findViewById(R.id.soal);
@@ -152,6 +150,7 @@ public class detail_diagnosa extends AppCompatActivity {
             public void onClick(View view) {
                 ArrayJawaban arrayJawaban = new ArrayJawaban(listSoal.get(counter).getId_gejala(), listSoal.get(counter).getId_penyakit());
                 jawabans.add(arrayJawaban);
+                //membedakan yake-1 dan yake-2
                 urut++;
                 if (urut == 1) {
                     //apakah nilai conter >= banyak soal ?
@@ -170,7 +169,9 @@ public class detail_diagnosa extends AppCompatActivity {
                         //urutt kirim di tambah 1
                         urut_kirim++;
                     }
-                } else {
+                }
+                // ya ke-2
+                else {
                     counter++;
                     //apakah nilai conter >= banyak soal ?
                     if (counter >= listSoal.size()) {
@@ -268,21 +269,16 @@ public class detail_diagnosa extends AppCompatActivity {
         ) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                JSONObject jsonObject = new JSONObject();
-                JSONObject jsonObject1 = new JSONObject();
+                JSONObject jsonObject_gejala = new JSONObject();
                 try {
                     for (int i = 0; i < jawabanList.size(); i++) {
-                        //menampung data id gejala ke dalam bentuk jason
-                        jsonObject.put("data" + i, jawabanList.get(i).getId_gejala());
-                        jsonObject1.put("penyakit" + i, jawabanList.get(i).getId_penyakit());
+                        //menampung data id gejala terpilih ke dalam bentuk jason
+                        jsonObject_gejala.put("data" + i, jawabanList.get(i).getId_gejala());
                     }
                 } catch (JSONException e) {
-
                 }
                 Map<String, String> params = new HashMap<>();
-                params.put("data", jsonObject.toString());
-                params.put("penyakit", jsonObject1.toString());
-                params.put("api", String.valueOf(jawabanList.size()));
+                params.put("data", jsonObject_gejala.toString());
                 params.put("bagian", bagian);
                 params.put("status_kirim",Integer.toString(status_kirim));
                 return params;
