@@ -78,10 +78,11 @@ public class Data_Gejala extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray banyakdata = jsonObject.getJSONArray("data");
                     for (int i = 0; i < banyakdata.length(); i++) {
+                        int nomor = i+1;
                         JSONObject datagetgejala = banyakdata.getJSONObject(i);
                         ListItemGejala listItemGejala = new ListItemGejala(
                                 datagetgejala.getString("nama_gejala"),
-                                datagetgejala.getString("id_gejala")
+                                ""+nomor
                         );
                         itemGejala.add(listItemGejala);
                     }

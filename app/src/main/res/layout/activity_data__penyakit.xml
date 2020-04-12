@@ -38,5 +38,4 @@
 
     <include layout="@layout/progresbar" />
 
-    <include layout="@layout/fab"></include>
 </RelativeLayout>

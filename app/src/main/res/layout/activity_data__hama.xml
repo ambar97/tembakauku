@@ -38,5 +38,4 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <include layout="@layout/fab"></include>
 </RelativeLayout>

@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data_Penyakit extends AppCompatActivity {
-    FloatingActionButton home, penyakit, hama, diagnosa;
     RecycleViewAdapterPenyakit adapterPenyakit;
     List<ListItemPenyakit> itemPenyakits = new ArrayList<>();
     RecyclerView recyclerView;
@@ -55,7 +54,6 @@ public class Data_Penyakit extends AppCompatActivity {
         progressBar = findViewById(R.id.pb);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fab();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.dataPenyakit_rec);
         recyclerView.setHasFixedSize(true);
@@ -142,34 +140,4 @@ public class Data_Penyakit extends AppCompatActivity {
         }
     }
 
-    public void fab() {
-        home = findViewById(R.id.home);
-        penyakit = findViewById(R.id.penyakit);
-        hama = findViewById(R.id.hama);
-        diagnosa = findViewById(R.id.diagnosa);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this, MainActivity.class));
-            }
-        });
-        penyakit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this, Data_Penyakit.class));
-            }
-        });
-        hama.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this, Data_Hama.class));
-            }
-        });
-        diagnosa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Data_Penyakit.this, Diagnosa.class));
-            }
-        });
-    }
 }
